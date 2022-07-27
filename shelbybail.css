@@ -1,0 +1,15 @@
+/* font */
+html{
+    font-family: Calibri, sans-serif
+}
+/* removeUpDownArrowsFromNumberInput
+chromeSafariEdgeOpera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
