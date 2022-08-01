@@ -1,15 +1,28 @@
 /* font */
 html{
-    font-family: Calibri, sans-serif
+    /* font-family: Calibri, sans-serif; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    font-size: 16px; 
 }
 /* removeUpDownArrowsFromNumberInput
 chromeSafariEdgeOpera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+  -webkit-appearance: none; 
+  margin: 0; 
 }
 /* firefox */
 input[type=number] {
-  -moz-appearance: textfield;
+  -moz-appearance: textfield; 
+}
+/* backgroundColor */
+/* body */
+body {background-color: #FFF7F0; }
+/* textInput */
+input[type="text"], textarea {
+  background-color : #FFFFFF; 
+}
+/* numberInput */
+input[type="number"], textarea {
+  background-color : #FFFFFF; 
 }

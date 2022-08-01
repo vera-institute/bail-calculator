@@ -14,7 +14,7 @@
 <!-- headingInformation -->
 <h1>Shelby County, Tennessee Bail Calculator</h1>
 <!-- <h1>Financial Assessment</h1> -->
-<h3>(Please fill in 0 if category is not applicable)</h3>
+<!-- <h3>(Please fill in 0 if category is not applicable)</h3> -->
 
 <!-- backgroundInformation -->
 <fieldset style="width:600px">
@@ -153,31 +153,31 @@
     <h1 class="head-title"></h1>
     <div class="input-group">
         <label for="cashBenefits">Cash Benefits: $</label>
-        <input class="input-text" type="number" id="cashBenefits">
+        <input onClick="this.select();" class="input-text" type="number" id="cashBenefits" value="0">
     </div>
     <div class="input-group">
         <label for="unemployment">Unemployment: $</label>
-        <input class="input-text" type="number" id="unemployment">
+        <input onClick="this.select();" class="input-text" type="number" id="unemployment" value="0">
     </div>
     <div class="input-group">
         <label for="SSI">SSI: $</label>
-        <input class="input-text" type="number" id="SSI">
+        <input onClick="this.select();" class="input-text" type="number" id="SSI" value="0">
     </div>
     <div class="input-group">
         <label for="SSD">SSD: $</label>
-        <input class="input-text" type="number" id="SSD">
+        <input onClick="this.select();" class="input-text" type="number" id="SSD" value="0">
     </div>
     <div class="input-group">
         <label for="socialSecurity">Social Security: $</label>
-        <input class="input-text" type="number" id="socialSecurity">
+        <input onClick="this.select();" class="input-text" type="number" id="socialSecurity" value="0">
     </div>
     <div class="input-group">
         <label for="pensionRetirement">Pension/Retirement: $</label>
-        <input class="input-text" type="number" id="pensionRetirement">
+        <input onClick="this.select();" class="input-text" type="number" id="pensionRetirement" value="0">
     </div>
     <div class="input-group">
         <label for="anyOtherIncome">Any Other Income?: $</label>
-        <input class="input-text" type="number" id="anyOtherIncome">
+        <input onClick="this.select();" class="input-text" type="number" id="anyOtherIncome" value="0">
     </div>
     <div class="button-group">
         <button class="button-primary" onclick="incomeFromBenefitsCompute()">Calculate</button>
@@ -196,15 +196,15 @@
 <h1 class="head-title"></h1>
 <div class="input-group">
     <label for="checkingAccount">Checking Account: $</label>
-    <input class="input-text" type="number" id="checkingAccount">
+    <input onClick="this.select();" class="input-text" type="number" id="checkingAccount" value="0">
 </div>
 <div class="input-group">
     <label for="savingsAccount">Savings Account: $</label>
-    <input class="input-text" type="number" id="savingsAccount">
+    <input onClick="this.select();" class="input-text" type="number" id="savingsAccount" value="0">
 </div>
 <div class="input-group">
     <label for="cashAvailableNow">How Much Cash Do You Have Available Right Now?: $</label>
-    <input class="input-text" type="number" id="cashAvailableNow">
+    <input onClick="this.select();" class="input-text" type="number" id="cashAvailableNow" value="0">
 </div>
 <!-- checkbox -->
 <form>
@@ -227,7 +227,7 @@
 </form>
 <div class="input-group">
     <label for="otherAssets">Approximate Value: $</label>
-    <input class="input-text" type="number" id="otherAssets">
+    <input onClick="this.select();" class="input-text" type="number" id="otherAssets" value="0">
  </div>
  <div class="button-group">
     <button class="button-primary" onclick="liquidAssetsCompute()">Calculate</button>
@@ -246,43 +246,43 @@
     <h1 class="head-title"></h1>
     <div class="input-group">
         <label for="payHousing">Housing: $</label>
-        <input class="input-text" type="number" id="payHousing">
+        <input onClick="this.select();" class="input-text" type="number" id="payHousing" value="0">
     </div>
     <div class="input-group">
         <label for="payElectricityGas">Electricity & Gas: $</label>
-        <input class="input-text" type="number" id="payElectricityGas">
+        <input onClick="this.select();" class="input-text" type="number" id="payElectricityGas" value="0">
     </div>
     <div class="input-group">
         <label for="payFoodGrocery">Food & Grocery: $</label>
-        <input class="input-text" type="number" id="payFoodGrocery">
+        <input onClick="this.select();" class="input-text" type="number" id="payFoodGrocery" value="0">
     </div>
     <div class="input-group">
         <label for="payTransportation">Transportation: $</label>
-        <input class="input-text" type="number" id="payTransportation">
+        <input onClick="this.select();" class="input-text" type="number" id="payTransportation" value="0">
     </div>
     <div class="input-group">
         <label for="payPhone">Phone: $</label>
-        <input class="input-text" type="number" id="payPhone">
+        <input onClick="this.select();" class="input-text" type="number" id="payPhone" value="0">
     </div>
     <div class="input-group">
         <label for="payStudentLoans">Student Loans: $</label>
-        <input class="input-text" type="number" id="payStudentLoans">
+        <input onClick="this.select();" class="input-text" type="number" id="payStudentLoans" value="0">
     </div>
     <div class="input-group">
         <label for="payChildSupport">Child Support: $</label>
-        <input class="input-text" type="number" id="payChildSupport">
+        <input onClick="this.select();" class="input-text" type="number" id="payChildSupport" value="0">
     </div>
     <div class="input-group">
         <label for="payMedical">Medical: $</label>
-        <input class="input-text" type="number" id="payMedical">
+        <input onClick="this.select();" class="input-text" type="number" id="payMedical" value="0">
     </div>
     <div class="input-group">
         <label for="payTvInternet">TV & Internet: $</label>
-        <input class="input-text" type="number" id="payTvInternet">
+        <input onClick="this.select();" class="input-text" type="number" id="payTvInternet" value="0">
     </div>
     <div class="input-group">
         <label for="payOther">Other: $</label>
-        <input class="input-text" type="number" id="payOther">
+        <input onClick="this.select();" class="input-text" type="number" id="payOther" value="0">
     </div>
     <div class="button-group">
         <button class="button-primary" onclick="expensesCompute()">Calculate</button>
@@ -294,13 +294,40 @@
 </fieldset>
 
 <!-- calculations -->
-<h2>Calculations</h2>
-<label for="calcs">Total Income</label>
-<p id="totes-income"></p>
+<fieldset style="width:600px">
+<!-- <h2>Calculations</h2> -->
+<legend>Calculations</legend> 
+<label for="calcs">Total Monthly Income: $</label>
+<p id="total_income"></p>
+
+<label for="calcs">+</label>
+<p></p>
+
+<label for="calcs">Total Benefits: $</label>
+<p id="total_benefits"></p>
+
+
+<label for="calcs">+</label>
+<p></p>
+
+<label for="calcs">Total Liquid Assets: $</label>
+<p id="total_assets"></p>
+
+<label for="calcs">-</label>
+<p></p>
+
+<label for="calcs">Total Expenses: $</label>
+<p id="total_expenses"></p>
+
+<label for="calcs">Gross Monthly Disposable Income: $</label>
+<p id="testTotal"></p>
+</fieldset>
 
 <!-- affordableBailAmount -->
-<h2>Affordable Bail Amount</h2>
-
+<fieldset style="width:600px">
+<!-- <h2>Affordable Bail Amount</h2> -->
+<legend>Affordable Bail Amount</legend> 
+</fieldset>
 </body>
 </html>
 
