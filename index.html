@@ -10,6 +10,8 @@
 
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="//d3js.org/d3.v7.min.js"></script>
+
     <script src="shelbybail.js"></script>
 <!-- headingInformation -->
 <h1>Shelby County, Tennessee Bail Calculator</h1>
@@ -76,17 +78,17 @@
 
 <input type="radio" onclick="hourlySalaryCheck();" name="hourlysalary" id="salaryCheck"/> Salary 
 <br>
-<input type="hidden" id="hourlyWage" name="hourlyWage" placeholder="Hourly Wage ($)"/>
-<input type="hidden" id="hoursPerWeek" name="hoursPerWeek" placeholder="Hours Per Week"/>
+<input type="hidden" id="hourlyWage" name="hourlyWage" placeholder="Hourly Wage ($)" value="0"/>
+<input type="hidden" id="hoursPerWeek" name="hoursPerWeek" placeholder="Hours Per Week" value="0"/>
 
-<input type="hidden" id="annualSalary" name="annualSalary" placeholder="Annual Salary ($)">
+<input type="hidden" id="annualSalary" name="annualSalary" placeholder="Annual Salary ($)" value="0">
 <input type="hidden" id="monthlySalary" name="monthlySalary" placeholder="Monthly Salary ($)">
 
 <!-- <button type="submit" class="btn btn-success">Register</button>   -->
 </div>
-<div class="button-group">
+<!-- <div class="button-group">
     <button class="button-primary" onclick="incomeCompute()">Calculate</button>
-</div>
+</div> -->
 <div class="input-group">
     <label for="totalIncome">Total Monthly Income: $</label>
     <p class="total-income-amount" id="totalIncome"></p>

@@ -38,7 +38,8 @@ function hourlySalaryCheck() {
 
 var totalIncome
 
-function incomeCompute() {
+// function incomeCompute() {
+    d3.select("#hourlyWage, #hoursPerWeek, #annualSalary, #monthlySalary").on('keyup', function () {
     var hourlyWageValue = parseInt(document.getElementById("hourlyWage").value);
     var hoursPerWeekValue = parseInt(document.getElementById("hoursPerWeek").value);
     var annualSalaryValue = parseInt(document.getElementById("annualSalary").value);
@@ -56,7 +57,7 @@ function incomeCompute() {
     document.getElementById("totalIncome").innerHTML = totalIncome
     document.getElementById("total_income").innerText = totalIncome
     // console.log(totalIncome)
-}
+})
 
 // incomeFromBenefits
 var totalIncomeFromBenefits
