@@ -61,27 +61,44 @@ function incomeCompute() {
 // incomeFromBenefits
 var totalIncomeFromBenefits
 
-function incomeFromBenefitsCompute() {
-    var cashBenefitsValue = parseInt(document.getElementById("cashBenefits").value);
-    var unemploymentValue = parseInt(document.getElementById("unemployment").value);
-    var SSIValue = parseInt(document.getElementById("SSI").value);
-    var SSDValue = parseInt(document.getElementById("SSD").value);
-    var socialSecurityValue = parseInt(document.getElementById("socialSecurity").value);
-    var pensionRetirementValue = parseInt(document.getElementById("pensionRetirement").value);
-    var anyOtherIncomeValue = parseInt(document.getElementById("anyOtherIncome").value);
+$(() => {
+    $("#cashBenefits,#unemployment,#SSI,#SSD,#socialSecurity,#pensionRetirement,#anyOtherIncome").on('keyup', function () {
+        var set = $(this).closest('fieldset');
 
-    var totalIncomeFromBenefits = cashBenefitsValue + unemploymentValue + SSIValue + SSDValue + socialSecurityValue + pensionRetirementValue + anyOtherIncomeValue;
+        var cash_benefits = $(set).find('#cashBenefits').val() == '' ? 0 : $(set).find('#cashBenefits').val();
+        var unemployment = $(set).find('#unemployment').val() == '' ? 0 : $(set).find('#unemployment').val();
+        var ssi = $(set).find('#SSI').val() == '' ? 0 : $(set).find('#SSI').val();
+        var ssd = $(set).find('#SSD').val() == '' ? 0 : $(set).find('#SSD').val();
+        var social = $(set).find('#socialSecurity').val() == '' ? 0 : $(set).find('#socialSecurity').val();
+        var pension = $(set).find('#pensionRetirement').val() == '' ? 0 : $(set).find('#pensionRetirement').val();
+        var other = $(set).find('#anyOtherIncome').val() == '' ? 0 : $(set).find('#anyOtherIncome').val();
 
-    if (totalIncomeFromBenefits) {
-        document.getElementById("totalIncomeFromBenefits").innerHTML = totalIncomeFromBenefits;
-    }
-    else {
-        document.getElementById("totalIncomeFromBenefits").innerHTML = "0";
-        // document.getElementById("totalIncomeFromBenefits").innerHTML = "Please Enter Values";
-    }
-    document.getElementById("total_benefits").innerText = totalIncomeFromBenefits
-    // console.log(totalIncomeFromBenefits)
-}
+        $(set).find('#totalIncomeFromBenefits').text(parseInt(isNaN(cash_benefits) ? 0 : cash_benefits) + parseInt(isNaN(unemployment) ? 0 : unemployment) + parseInt(isNaN(ssi) ? 0 : ssi) + parseInt(isNaN(ssd) ? 0 : ssd) + parseInt(isNaN(social) ? 0 : social) + parseInt(isNaN(pension) ? 0 : pension) + parseInt(isNaN(other) ? 0 : other));
+    });
+});
+
+
+// function incomeFromBenefitsCompute() {
+//     var cashBenefitsValue = parseInt(document.getElementById("cashBenefits").value);
+//     var unemploymentValue = parseInt(document.getElementById("unemployment").value);
+//     var SSIValue = parseInt(document.getElementById("SSI").value);
+//     var SSDValue = parseInt(document.getElementById("SSD").value);
+//     var socialSecurityValue = parseInt(document.getElementById("socialSecurity").value);
+//     var pensionRetirementValue = parseInt(document.getElementById("pensionRetirement").value);
+//     var anyOtherIncomeValue = parseInt(document.getElementById("anyOtherIncome").value);
+
+//     var totalIncomeFromBenefits = cashBenefitsValue + unemploymentValue + SSIValue + SSDValue + socialSecurityValue + pensionRetirementValue + anyOtherIncomeValue;
+
+//     if (totalIncomeFromBenefits) {
+//         document.getElementById("totalIncomeFromBenefits").innerHTML = totalIncomeFromBenefits;
+//     }
+//     else {
+//         document.getElementById("totalIncomeFromBenefits").innerHTML = "0";
+//         // document.getElementById("totalIncomeFromBenefits").innerHTML = "Please Enter Values";
+//     }
+//     document.getElementById("total_benefits").innerText = totalIncomeFromBenefits
+//     // console.log(totalIncomeFromBenefits)
+// }
 // liquidAssets
 var totalLiquidAssets
 

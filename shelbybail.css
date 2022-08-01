@@ -26,3 +26,10 @@ input[type="text"], textarea {
 input[type="number"], textarea {
   background-color : #FFFFFF; 
 }
+.input-group.flex{
+  display: flex;
+}
+.input-group.flex > span{
+  margin-left:0px;
+  margin-top: 1px;
+}
