@@ -62,6 +62,9 @@ function incomeCompute() {
 var totalIncomeFromBenefits
 
 $(() => {
+    let totalBennies
+    let allBenefits = []
+
     $("#cashBenefits,#unemployment,#SSI,#SSD,#socialSecurity,#pensionRetirement,#anyOtherIncome").on('keyup', function () {
         var set = $(this).closest('fieldset');
 
@@ -73,8 +76,19 @@ $(() => {
         var pension = $(set).find('#pensionRetirement').val() == '' ? 0 : $(set).find('#pensionRetirement').val();
         var other = $(set).find('#anyOtherIncome').val() == '' ? 0 : $(set).find('#anyOtherIncome').val();
 
-        $(set).find('#totalIncomeFromBenefits').text(parseInt(isNaN(cash_benefits) ? 0 : cash_benefits) + parseInt(isNaN(unemployment) ? 0 : unemployment) + parseInt(isNaN(ssi) ? 0 : ssi) + parseInt(isNaN(ssd) ? 0 : ssd) + parseInt(isNaN(social) ? 0 : social) + parseInt(isNaN(pension) ? 0 : pension) + parseInt(isNaN(other) ? 0 : other));
+        totalBennies = parseInt(isNaN(cash_benefits) ? 0 : cash_benefits) + parseInt(isNaN(unemployment) ? 0 : unemployment) + parseInt(isNaN(ssi) ? 0 : ssi) + parseInt(isNaN(ssd) ? 0 : ssd) + parseInt(isNaN(social) ? 0 : social) + parseInt(isNaN(pension) ? 0 : pension) + parseInt(isNaN(other) ? 0 : other)
+
+
+        $(set).find('#totalIncomeFromBenefits').text(totalBennies);
+
+        $("#total_benefits").text(totalBennies)
+        allBenefits.push(totalBennies)
+
     });
+
+
+
+
 });
 
 
@@ -119,7 +133,7 @@ function liquidAssetsCompute() {
     }
     document.getElementById("total_assets").innerText = totalLiquidAssets
     // console.log (totalLiquidAssets)
-    return(totalLiquidAssets)
+    return (totalLiquidAssets)
 }
 
 // Expenses
