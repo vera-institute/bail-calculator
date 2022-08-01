@@ -106,21 +106,21 @@ function liquidAssetsCompute() {
 }
 
 // Expenses
-var totalExpenses;
+let totalExpenses, housingValue, electricityGasValue, foodGroceryValue, transportationValue, phoneValue, studentLoansValue, childSupportValue, medicalValue, tvInternetValue, otherValue
 
 function expensesCompute() {
-    var housingValue = parseInt(document.getElementById("payHousing").value);
-    var electricityGasValue = parseInt(document.getElementById("payElectricityGas").value);
-    var foodGroceryValue = parseInt(document.getElementById("payFoodGrocery").value);
-    var transportationValue = parseInt(document.getElementById("payTransportation").value);
-    var phoneValue = parseInt(document.getElementById("payPhone").value);
-    var studentLoansValue = parseInt(document.getElementById("payStudentLoans").value);
-    var childSupportValue = parseInt(document.getElementById("payChildSupport").value);
-    var medicalValue = parseInt(document.getElementById("payMedical").value);
-    var tvInternetValue = parseInt(document.getElementById("payTvInternet").value);
-    var otherValue = parseInt(document.getElementById("payOther").value);
+    housingValue = parseInt(document.getElementById("payHousing").value);
+    electricityGasValue = parseInt(document.getElementById("payElectricityGas").value);
+    foodGroceryValue = parseInt(document.getElementById("payFoodGrocery").value);
+    transportationValue = parseInt(document.getElementById("payTransportation").value);
+    phoneValue = parseInt(document.getElementById("payPhone").value);
+    studentLoansValue = parseInt(document.getElementById("payStudentLoans").value);
+    childSupportValue = parseInt(document.getElementById("payChildSupport").value);
+    medicalValue = parseInt(document.getElementById("payMedical").value);
+    tvInternetValue = parseInt(document.getElementById("payTvInternet").value);
+    otherValue = parseInt(document.getElementById("payOther").value);
 
-    var totalExpenses = housingValue + electricityGasValue + foodGroceryValue + transportationValue + phoneValue + studentLoansValue + childSupportValue + medicalValue + tvInternetValue + otherValue;
+    totalExpenses = housingValue + electricityGasValue + foodGroceryValue + transportationValue + phoneValue + studentLoansValue + childSupportValue + medicalValue + tvInternetValue + otherValue;
 
     if (totalExpenses) {
         document.getElementById("totalExpenses").innerHTML = totalExpenses;
