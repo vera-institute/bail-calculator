@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.price,.quantity').on('keyup', function () {
+                var row = $(this).closest('tr');
+                var price = $(row).find('.price').val() == '' ? 0 : $(row).find('.price').val();
+                var quantity = $(row).find('.quantity').val() == '' ? 0 : $(row).find('.quantity').val();
+                $(row).find('.total').val(parseInt(isNaN(price) ? 0 : price) * parseInt(isNaN(quantity) ? 0 : quantity));
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+            <tr>
+                <td>Chai</td>
+                <td><input type="text" class="price" /></td>
+                <td><input type="text" class="quantity" /></td>
+                <td><input type="text" class="total" /></td>
+            </tr>
+            <tr>
+                <td>Chang</td>
+                <td><input type="text" class="price" /></td>
+                <td><input type="text" class="quantity" /></td>
+                <td><input type="text" class="total" /></td>
+            </tr>
+            <tr>
+                <td>Aniseed Syrup</td>
+                <td><input type="text" class="price" /></td>
+                <td><input type="text" class="quantity" /></td>
+                <td><input type="text" class="total" /></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
