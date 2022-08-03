@@ -85,12 +85,12 @@
 
             <!-- <button type="submit" class="btn btn-success">Register</button>   -->
         </div>
-        <div class="button-group">
+        <!-- <div class="button-group">
             <button class="button-primary" onclick="incomeCompute()">Calculate</button>
-        </div>
-        <div class="input-group">
+        </div> -->
+        <div class="input-group flex">
             <label for="totalIncome">Total Monthly Income: $</label>
-            <p class="total-income-amount" id="totalIncome"></p>
+            <span class="total-income-amount" id="totalIncome">0</span>
         </div>
     </fieldset>
 
@@ -230,12 +230,12 @@
             <label for="otherAssets">Approximate Value: $</label>
             <input onClick="this.select();" class="input-text" type="number" id="otherAssets" value="0">
         </div>
-        <div class="button-group">
+        <!-- <div class="button-group">
             <button class="button-primary" onclick="liquidAssetsCompute()">Calculate</button>
-        </div>
-        <div class="input-group">
+        </div> -->
+        <div class="input-group flex">
             <label for="totalLiquidAssets">Total Liquid Assets: $</label>
-            <p class="total-liquid-assets-amount" id="totalLiquidAssets"></p>
+            <span class="total-liquid-assets-amount" id="totalLiquidAssets">0</span>
         </div>
     </fieldset>
 
@@ -285,12 +285,12 @@
             <label for="payOther">Other: $</label>
             <input onClick="this.select();" class="input-text" type="number" id="payOther" value="0">
         </div>
-        <div class="button-group">
+        <!-- <div class="button-group">
             <button class="button-primary" onclick="expensesCompute()">Calculate</button>
-        </div>
-        <div class="input-group">
+        </div> -->
+        <div class="input-group flex">
             <label for="totalExpenses">Total Expenses: $</label>
-            <p class="tot-expenses-amount" id="totalExpenses"></p>
+            <span class="tot-expenses-amount" id="totalExpenses">0</span>
         </div>
     </fieldset>
 
@@ -299,29 +299,34 @@
         <!-- <h2>Calculations</h2> -->
         <legend>Calculations</legend>
         <label for="calcs">Total Monthly Income: $</label>
-        <p id="total_income"></p>
+        <span id="total_income"></span>
 
         <label for="calcs">+</label>
         <p></p>
 
         <label for="calcs">Total Benefits: $</label>
-        <p id="total_benefits"></p>
+        <span id="total_benefits"></span>
 
 
         <label for="calcs">+</label>
         <p></p>
 
         <label for="calcs">Total Liquid Assets: $</label>
-        <p id="total_assets"></p>
+        <span id="total_assets"></span>
 
         <label for="calcs">-</label>
         <p></p>
 
         <label for="calcs">Total Expenses: $</label>
-        <p id="total_expenses"></p>
+        <span id="total_expenses"></span>
+
+        <p></p>
+        
+        <!-- <br></br> -->
 
         <label for="calcs">Gross Monthly Disposable Income: $</label>
         <p id="testTotal"></p>
+
     </fieldset>
 
     <!-- affordableBailAmount -->

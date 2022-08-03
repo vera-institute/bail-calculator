@@ -36,35 +36,65 @@ function hourlySalaryCheck() {
     }
 }
 
-var totalIncome
+// var totalIncome
 
-function incomeCompute() {
-    var hourlyWageValue = parseInt(document.getElementById("hourlyWage").value);
-    var hoursPerWeekValue = parseInt(document.getElementById("hoursPerWeek").value);
-    var annualSalaryValue = parseInt(document.getElementById("annualSalary").value);
-    var monthlySalaryValue = parseInt(document.getElementById("monthlySalary").value);
+// function incomeCompute() {
+//     var hourlyWageValue = parseInt(document.getElementById("hourlyWage").value);
+//     var hoursPerWeekValue = parseInt(document.getElementById("hoursPerWeek").value);
+//     var annualSalaryValue = parseInt(document.getElementById("annualSalary").value);
+//     var monthlySalaryValue = parseInt(document.getElementById("monthlySalary").value);
 
-    // var totalIncome = ((hourlyWageValue * hoursPerWeekValue)*4);
+//     // var totalIncome = ((hourlyWageValue * hoursPerWeekValue)*4);
 
-    if (annualSalaryValue > 0) {
-        totalIncome = (annualSalaryValue / 12)
-    } else if (hourlyWageValue > 0) {
-        totalIncome = ((hourlyWageValue * hoursPerWeekValue) * 4)
-    } else {
-        totalIncome = "Please Enter Values";
-    }
-    document.getElementById("totalIncome").innerHTML = totalIncome
-    document.getElementById("total_income").innerText = totalIncome
-    // console.log(totalIncome)
-}
+//     if (annualSalaryValue > 0) {
+//         totalIncome = (annualSalaryValue / 12)
+//     } else if (hourlyWageValue > 0) {
+//         totalIncome = ((hourlyWageValue * hoursPerWeekValue) * 4)
+//     } else {
+//         totalIncome = "Please Enter Values";
+//     }
+//     document.getElementById("totalIncome").innerHTML = totalIncome
+//     document.getElementById("total_income").innerText = totalIncome
+//     // console.log(totalIncome)
+// }
 
-// incomeFromBenefits
-var totalIncomeFromBenefits
+var totalIncome,totalIncomeFromBenefits,totalLiquidAssets,totalExpenses;
 
 $(() => {
-    let totalBennies
-    let allBenefits = []
+    let totalIncome,totalBennies,totalAssets,totalExpenses;
+    allIncomeAndExpenses = [];
 
+// totalIncome
+$("#hourlyWage,#hoursPerWeek,#annualSalary,#monthlySalary").on('keyup', function () {
+    
+    var set = $(this).closest('fieldset');
+
+    var hourly_wage = $(set).find('#hourlyWage').val() == '' ? 0 : $(set).find('#hourlyWage').val();
+    var hours_per_week = $(set).find('#hoursPerWeek').val() == '' ? 0 : $(set).find('#hoursPerWeek').val();
+    var annual_salary = $(set).find('#annualSalary').val() == '' ? 0 : $(set).find('#annualSalary').val();
+    var monthly_salary = $(set).find('#monthlySalary').val() == '' ? 0 : $(set).find('#monthlySalary').val();
+
+    // totalIncome = parseInt(isNaN(hourly_wage) ? 0 : hourly_wage) + parseInt(isNaN(hours_per_week) ? 0 : hours_per_week) + parseInt(isNaN(annual_salary) ? 0 : annual_salary) + parseInt(isNaN(monthly_salary) ? 0 : monthly_salary)
+
+    // income
+    if (annual_salary > 0) {
+        totalIncome = (annual_salary / 12)
+    } else if (hourly_wage > 0) {
+        totalIncome = ((hourly_wage * hours_per_week) * 4)
+    } else {
+        totalIncome = "0";
+    }
+    
+
+    $(set).find('#totalIncome').text(totalIncome);
+
+    $("#total_income").text(totalIncome)
+    allIncomeAndExpenses.push(totalIncome)
+
+});
+
+
+// totalIncomeFromBenefits
     $("#cashBenefits,#unemployment,#SSI,#SSD,#socialSecurity,#pensionRetirement,#anyOtherIncome").on('keyup', function () {
         var set = $(this).closest('fieldset');
 
@@ -82,14 +112,57 @@ $(() => {
         $(set).find('#totalIncomeFromBenefits').text(totalBennies);
 
         $("#total_benefits").text(totalBennies)
-        allBenefits.push(totalBennies)
+        allIncomeAndExpenses.push(totalBennies)
 
     });
 
+// totalLiquidAssets
+    $("#checkingAccount,#savingsAccount,#cashAvailableNow,#otherAssets").on('keyup', function () {
+        var set = $(this).closest('fieldset');
+
+        var checking_account = $(set).find('#checkingAccount').val() == '' ? 0 : $(set).find('#checkingAccount').val();
+        var savings_account = $(set).find('#savingsAccount').val() == '' ? 0 : $(set).find('#savingsAccount').val();
+        var cash_available_now = $(set).find('#cashAvailableNow').val() == '' ? 0 : $(set).find('#cashAvailableNow').val();
+        var other_assets = $(set).find('#otherAssets').val() == '' ? 0 : $(set).find('#otherAssets').val();
+
+        totalAssets = parseInt(isNaN(checking_account) ? 0 : checking_account) + parseInt(isNaN(savings_account) ? 0 : savings_account) + parseInt(isNaN(cash_available_now) ? 0 : cash_available_now) + parseInt(isNaN(other_assets) ? 0 : other_assets)
 
 
+        $(set).find('#totalLiquidAssets').text(totalAssets);
+
+        $("#total_assets").text(totalAssets)
+        allIncomeAndExpenses.push(totalAssets)
+
+    });
+
+// totalExpenses
+    $("#payHousing,#payElectricityGas,#payFoodGrocery,#payTransportation,#payPhone,#payStudentLoans,#payChildSupport,#payMedical,#payTvInternet,#payOther").on('keyup', function () {
+        var set = $(this).closest('fieldset');
+
+        var housing = $(set).find('#payHousing').val() == '' ? 0 : $(set).find('#payHousing').val();
+        var electricity_gas = $(set).find('#payElectricityGas').val() == '' ? 0 : $(set).find('#payElectricityGas').val();
+        var food_grocery = $(set).find('#payFoodGrocery').val() == '' ? 0 : $(set).find('#payFoodGrocery').val();
+        var transportation = $(set).find('#payTransportation').val() == '' ? 0 : $(set).find('#payTransportation').val();
+        var phone = $(set).find('#payPhone').val() == '' ? 0 : $(set).find('#payPhone').val();
+        var student_loans = $(set).find('#payStudentLoans').val() == '' ? 0 : $(set).find('#payStudentLoans').val();
+        var child_support = $(set).find('#payChildSupport').val() == '' ? 0 : $(set).find('#payChildSupport').val();
+        var medical = $(set).find('#payMedical').val() == '' ? 0 : $(set).find('#payMedical').val();
+        var tv_internet = $(set).find('#payTvInternet').val() == '' ? 0 : $(set).find('#payTvInternet').val();
+        var other = $(set).find('#payOther').val() == '' ? 0 : $(set).find('#payOther').val();
+
+        totalExpenses = parseInt(isNaN(housing) ? 0 : housing) + parseInt(isNaN(electricity_gas) ? 0 : electricity_gas) + parseInt(isNaN(food_grocery) ? 0 : food_grocery) + parseInt(isNaN(transportation) ? 0 : transportation) + parseInt(isNaN(phone) ? 0 : phone) + parseInt(isNaN(student_loans) ? 0 : student_loans) + parseInt(isNaN(child_support) ? 0 : child_support) + parseInt(isNaN(medical) ? 0 : medical) + parseInt(isNaN(tv_internet) ? 0 : tv_internet) + parseInt(isNaN(other) ? 0 : other)
+
+
+        $(set).find('#totalExpenses').text(totalExpenses);
+
+        $("#total_expenses").text(totalExpenses)
+        allIncomeAndExpenses.push(totalExpenses)
+        console.log(allIncomeAndExpenses)
+
+    });
 
 });
+
 
 
 // function incomeFromBenefitsCompute() {
@@ -114,52 +187,52 @@ $(() => {
 //     // console.log(totalIncomeFromBenefits)
 // }
 // liquidAssets
-var totalLiquidAssets
+// var totalLiquidAssets
 
-function liquidAssetsCompute() {
-    var checkingAccountValue = parseInt(document.getElementById("checkingAccount").value);
-    var savingsAccountValue = parseInt(document.getElementById("savingsAccount").value);
-    var cashAvailableNowValue = parseInt(document.getElementById("cashAvailableNow").value);
-    var otherAssetsValue = parseInt(document.getElementById("otherAssets").value);
+// function liquidAssetsCompute() {
+//     var checkingAccountValue = parseInt(document.getElementById("checkingAccount").value);
+//     var savingsAccountValue = parseInt(document.getElementById("savingsAccount").value);
+//     var cashAvailableNowValue = parseInt(document.getElementById("cashAvailableNow").value);
+//     var otherAssetsValue = parseInt(document.getElementById("otherAssets").value);
 
-    var totalLiquidAssets = checkingAccountValue + savingsAccountValue + cashAvailableNowValue + otherAssetsValue;
+//     var totalLiquidAssets = checkingAccountValue + savingsAccountValue + cashAvailableNowValue + otherAssetsValue;
 
-    if (totalLiquidAssets) {
-        document.getElementById("totalLiquidAssets").innerHTML = totalLiquidAssets;
-    }
-    else {
-        document.getElementById("totalLiquidAssets").innerHTML = "0";
-        // document.getElementById("totalLiquidAssets").innerHTML = "Please Enter Values";
-    }
-    document.getElementById("total_assets").innerText = totalLiquidAssets
-    // console.log (totalLiquidAssets)
-    return (totalLiquidAssets)
-}
+//     if (totalLiquidAssets) {
+//         document.getElementById("totalLiquidAssets").innerHTML = totalLiquidAssets;
+//     }
+//     else {
+//         document.getElementById("totalLiquidAssets").innerHTML = "0";
+//         // document.getElementById("totalLiquidAssets").innerHTML = "Please Enter Values";
+//     }
+//     document.getElementById("total_assets").innerText = totalLiquidAssets
+//     // console.log (totalLiquidAssets)
+//     return (totalLiquidAssets)
+// }
 
-// Expenses
-let totalExpenses, housingValue, electricityGasValue, foodGroceryValue, transportationValue, phoneValue, studentLoansValue, childSupportValue, medicalValue, tvInternetValue, otherValue
+// // Expenses
+// let totalExpenses, housingValue, electricityGasValue, foodGroceryValue, transportationValue, phoneValue, studentLoansValue, childSupportValue, medicalValue, tvInternetValue, otherValue
 
-function expensesCompute() {
-    housingValue = parseInt(document.getElementById("payHousing").value);
-    electricityGasValue = parseInt(document.getElementById("payElectricityGas").value);
-    foodGroceryValue = parseInt(document.getElementById("payFoodGrocery").value);
-    transportationValue = parseInt(document.getElementById("payTransportation").value);
-    phoneValue = parseInt(document.getElementById("payPhone").value);
-    studentLoansValue = parseInt(document.getElementById("payStudentLoans").value);
-    childSupportValue = parseInt(document.getElementById("payChildSupport").value);
-    medicalValue = parseInt(document.getElementById("payMedical").value);
-    tvInternetValue = parseInt(document.getElementById("payTvInternet").value);
-    otherValue = parseInt(document.getElementById("payOther").value);
+// function expensesCompute() {
+//     housingValue = parseInt(document.getElementById("payHousing").value);
+//     electricityGasValue = parseInt(document.getElementById("payElectricityGas").value);
+//     foodGroceryValue = parseInt(document.getElementById("payFoodGrocery").value);
+//     transportationValue = parseInt(document.getElementById("payTransportation").value);
+//     phoneValue = parseInt(document.getElementById("payPhone").value);
+//     studentLoansValue = parseInt(document.getElementById("payStudentLoans").value);
+//     childSupportValue = parseInt(document.getElementById("payChildSupport").value);
+//     medicalValue = parseInt(document.getElementById("payMedical").value);
+//     tvInternetValue = parseInt(document.getElementById("payTvInternet").value);
+//     otherValue = parseInt(document.getElementById("payOther").value);
 
-    totalExpenses = housingValue + electricityGasValue + foodGroceryValue + transportationValue + phoneValue + studentLoansValue + childSupportValue + medicalValue + tvInternetValue + otherValue;
+//     totalExpenses = housingValue + electricityGasValue + foodGroceryValue + transportationValue + phoneValue + studentLoansValue + childSupportValue + medicalValue + tvInternetValue + otherValue;
 
-    if (totalExpenses) {
-        document.getElementById("totalExpenses").innerHTML = totalExpenses;
-    }
-    else {
-        document.getElementById("totalExpenses").innerHTML = "0";
-        // document.getElementById("totalExpenses").innerHTML = "Please Enter Values";
-    }
-    document.getElementById("total_expenses").innerText = totalExpenses
-    console.log(totalExpenses)
-}
+//     if (totalExpenses) {
+//         document.getElementById("totalExpenses").innerHTML = totalExpenses;
+//     }
+//     else {
+//         document.getElementById("totalExpenses").innerHTML = "0";
+//         // document.getElementById("totalExpenses").innerHTML = "Please Enter Values";
+//     }
+//     document.getElementById("total_expenses").innerText = totalExpenses
+//     console.log(totalExpenses)
+// }
