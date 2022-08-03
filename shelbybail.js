@@ -58,43 +58,45 @@ function hourlySalaryCheck() {
 //     // console.log(totalIncome)
 // }
 
-var totalIncome,totalIncomeFromBenefits,totalLiquidAssets,totalExpenses;
-
+// var totalIncome, totalIncomeFromBenefits, totalLiquidAssets, totalExpenses;
+let total = document.getElementById('testTotal')
 $(() => {
-    let totalIncome,totalBennies,totalAssets,totalExpenses;
+    let totalIncome = 0, totalBennies = 0, totalAssets = 0, totalExpenses = 0, testTotal = 0;
     let allIncomeAndExpenses = [];
 
-// totalIncome
-$("#hourlyWage,#hoursPerWeek,#annualSalary,#monthlySalary").on('keyup', function () {
-    
-    var set = $(this).closest('fieldset');
+    // totalIncome
+    $("#hourlyWage,#hoursPerWeek,#annualSalary,#monthlySalary").on('keyup', function () {
 
-    var hourly_wage = $(set).find('#hourlyWage').val() == '' ? 0 : $(set).find('#hourlyWage').val();
-    var hours_per_week = $(set).find('#hoursPerWeek').val() == '' ? 0 : $(set).find('#hoursPerWeek').val();
-    var annual_salary = $(set).find('#annualSalary').val() == '' ? 0 : $(set).find('#annualSalary').val();
-    var monthly_salary = $(set).find('#monthlySalary').val() == '' ? 0 : $(set).find('#monthlySalary').val();
+        var set = $(this).closest('fieldset');
 
-    // totalIncome = parseInt(isNaN(hourly_wage) ? 0 : hourly_wage) + parseInt(isNaN(hours_per_week) ? 0 : hours_per_week) + parseInt(isNaN(annual_salary) ? 0 : annual_salary) + parseInt(isNaN(monthly_salary) ? 0 : monthly_salary)
+        var hourly_wage = $(set).find('#hourlyWage').val() == '' ? 0 : $(set).find('#hourlyWage').val();
+        var hours_per_week = $(set).find('#hoursPerWeek').val() == '' ? 0 : $(set).find('#hoursPerWeek').val();
+        var annual_salary = $(set).find('#annualSalary').val() == '' ? 0 : $(set).find('#annualSalary').val();
+        var monthly_salary = $(set).find('#monthlySalary').val() == '' ? 0 : $(set).find('#monthlySalary').val();
 
-    // income
-    if (annual_salary > 0) {
-        totalIncome = (annual_salary / 12)
-    } else if (hourly_wage > 0) {
-        totalIncome = ((hourly_wage * hours_per_week) * 4)
-    } else {
-        totalIncome = "0";
-    }
-    
+        // totalIncome = parseInt(isNaN(hourly_wage) ? 0 : hourly_wage) + parseInt(isNaN(hours_per_week) ? 0 : hours_per_week) + parseInt(isNaN(annual_salary) ? 0 : annual_salary) + parseInt(isNaN(monthly_salary) ? 0 : monthly_salary)
 
-    $(set).find('#totalIncome').text(totalIncome);
-
-    $("#total_income").text(totalIncome)
-    allIncomeAndExpenses.push(totalIncome.slice(-1))
-
-});
+        // income
+        if (annual_salary > 0) {
+            totalIncome = (annual_salary / 12)
+        } else if (hourly_wage > 0) {
+            totalIncome = ((hourly_wage * hours_per_week) * 4)
+        } else {
+            totalIncome = "0";
+        }
 
 
-// totalIncomeFromBenefits
+        $(set).find('#totalIncome').text(totalIncome);
+        $("#total_income").text(totalIncome)
+        allIncomeAndExpenses.push(totalIncome)
+        testTotal = totalIncome + totalBennies + totalAssets - totalExpenses
+        $("#testTotal").text(testTotal)
+
+
+
+    });
+    console.log(totalIncome)
+    // totalIncomeFromBenefits
     $("#cashBenefits,#unemployment,#SSI,#SSD,#socialSecurity,#pensionRetirement,#anyOtherIncome").on('keyup', function () {
         var set = $(this).closest('fieldset');
 
@@ -113,10 +115,11 @@ $("#hourlyWage,#hoursPerWeek,#annualSalary,#monthlySalary").on('keyup', function
 
         $("#total_benefits").text(totalBennies)
         allIncomeAndExpenses.push(totalBennies)
-
+        testTotal = totalIncome + totalBennies + totalAssets - totalExpenses
+        $("#testTotal").text(testTotal)
     });
 
-// totalLiquidAssets
+    // totalLiquidAssets
     $("#checkingAccount,#savingsAccount,#cashAvailableNow,#otherAssets").on('keyup', function () {
         var set = $(this).closest('fieldset');
 
@@ -132,10 +135,11 @@ $("#hourlyWage,#hoursPerWeek,#annualSalary,#monthlySalary").on('keyup', function
 
         $("#total_assets").text(totalAssets)
         allIncomeAndExpenses.push(totalAssets)
-
+        testTotal = totalIncome + totalBennies + totalAssets - totalExpenses
+        $("#testTotal").text(testTotal)
     });
 
-// totalExpenses
+    // totalExpenses
     $("#payHousing,#payElectricityGas,#payFoodGrocery,#payTransportation,#payPhone,#payStudentLoans,#payChildSupport,#payMedical,#payTvInternet,#payOther").on('keyup', function () {
         var set = $(this).closest('fieldset');
 
@@ -157,9 +161,14 @@ $("#hourlyWage,#hoursPerWeek,#annualSalary,#monthlySalary").on('keyup', function
 
         $("#total_expenses").text(totalExpenses)
         allIncomeAndExpenses.push(totalExpenses)
+        testTotal = totalIncome + totalBennies + totalAssets - totalExpenses
+        $("#testTotal").text(testTotal)
     });
 
 });
+
+
+
 
 
 
