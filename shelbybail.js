@@ -62,7 +62,7 @@ var totalIncome,totalIncomeFromBenefits,totalLiquidAssets,totalExpenses;
 
 $(() => {
     let totalIncome,totalBennies,totalAssets,totalExpenses;
-    allIncomeAndExpenses = [];
+    let allIncomeAndExpenses = [];
 
 // totalIncome
 $("#hourlyWage,#hoursPerWeek,#annualSalary,#monthlySalary").on('keyup', function () {
@@ -89,7 +89,7 @@ $("#hourlyWage,#hoursPerWeek,#annualSalary,#monthlySalary").on('keyup', function
     $(set).find('#totalIncome').text(totalIncome);
 
     $("#total_income").text(totalIncome)
-    allIncomeAndExpenses.push(totalIncome)
+    allIncomeAndExpenses.push(totalIncome.slice(-1))
 
 });
 
@@ -157,8 +157,6 @@ $("#hourlyWage,#hoursPerWeek,#annualSalary,#monthlySalary").on('keyup', function
 
         $("#total_expenses").text(totalExpenses)
         allIncomeAndExpenses.push(totalExpenses)
-        console.log(allIncomeAndExpenses)
-
     });
 
 });
