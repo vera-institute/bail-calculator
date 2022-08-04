@@ -84,10 +84,10 @@ $(() => {
 
         // income
         if (annual_salary > 0 && salary1.type === 'number') {
-            totalIncome = (annual_salary / 12)
+            totalIncome = Math.round(annual_salary / 12)
             console.log('ONE')
         } else if (hourly_wage > 0 && hourly1.type === 'number') {
-            totalIncome = ((hourly_wage * hours_per_week) * 4)
+            totalIncome = Math.round((hourly_wage * hours_per_week) * 4)
             console.log('two')
         } else {
             totalIncome = "0";
@@ -133,7 +133,7 @@ $(() => {
         var pension = $(set).find('#pensionRetirement').val() == '' ? 0 : $(set).find('#pensionRetirement').val();
         var other = $(set).find('#anyOtherIncome').val() == '' ? 0 : $(set).find('#anyOtherIncome').val();
 
-        totalBennies = parseInt(isNaN(cash_benefits) ? 0 : cash_benefits) + parseInt(isNaN(unemployment) ? 0 : unemployment) + parseInt(isNaN(ssi) ? 0 : ssi) + parseInt(isNaN(ssd) ? 0 : ssd) + parseInt(isNaN(social) ? 0 : social) + parseInt(isNaN(pension) ? 0 : pension) + parseInt(isNaN(other) ? 0 : other)
+        totalBennies = Math.round(parseInt(isNaN(cash_benefits) ? 0 : cash_benefits) + parseInt(isNaN(unemployment) ? 0 : unemployment) + parseInt(isNaN(ssi) ? 0 : ssi) + parseInt(isNaN(ssd) ? 0 : ssd) + parseInt(isNaN(social) ? 0 : social) + parseInt(isNaN(pension) ? 0 : pension) + parseInt(isNaN(other) ? 0 : other))
 
 
         $(set).find('#totalIncomeFromBenefits').text(totalBennies);
