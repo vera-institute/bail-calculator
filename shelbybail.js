@@ -25,13 +25,15 @@ function hourlySalaryCheck() {
     hourly1 = document.getElementById('hourlyWage')
     hourly2 = document.getElementById('hoursPerWeek')
     salary1 = document.getElementById('annualSalary')
-    salary2 = document.getElementById('monthlySalary')
+    // salary2 = document.getElementById('monthlySalary')
 
     if (document.getElementById('hourlyCheck').checked) {
         hourly1.type = hourly2.type = 'number';
-        salary1.type = salary2.type = 'hidden';
+        // salary1.type = salary2.type = 'hidden';
+        salary1.type =  'hidden';
     } else {
-        salary1.type = salary2.type = 'number';
+        // salary1.type = salary2.type = 'number';
+        salary1.type  = 'number';
         hourly1.type = hourly2.type = 'hidden';
     }
 }
@@ -61,18 +63,19 @@ function hourlySalaryCheck() {
 // var totalIncome, totalIncomeFromBenefits, totalLiquidAssets, totalExpenses;
 let total = document.getElementById('testTotal')
 $(() => {
-    let totalIncome = 0, totalBennies = 0, totalAssets = 0, totalExpenses = 0, testTotal = 0;
+    let totalIncome = 0, totalBennies = 0, totalAssets = 0, totalExpenses = 0, totalIncomeAndExpenses = 0;
+    let affordableBailAmount;
     let allIncomeAndExpenses = [];
 
     // totalIncome
-    $("#hourlyWage,#hoursPerWeek,#annualSalary,#monthlySalary").on('keyup', function () {
-
+    // ,#monthlySalary
+    $("#hourlyWage,#hoursPerWeek,#annualSalary").on('keyup', function () {
         var set = $(this).closest('fieldset');
 
         var hourly_wage = $(set).find('#hourlyWage').val() == '' ? 0 : $(set).find('#hourlyWage').val();
         var hours_per_week = $(set).find('#hoursPerWeek').val() == '' ? 0 : $(set).find('#hoursPerWeek').val();
         var annual_salary = $(set).find('#annualSalary').val() == '' ? 0 : $(set).find('#annualSalary').val();
-        var monthly_salary = $(set).find('#monthlySalary').val() == '' ? 0 : $(set).find('#monthlySalary').val();
+        // var monthly_salary = $(set).find('#monthlySalary').val() == '' ? 0 : $(set).find('#monthlySalary').val();
 
         // totalIncome = parseInt(isNaN(hourly_wage) ? 0 : hourly_wage) + parseInt(isNaN(hours_per_week) ? 0 : hours_per_week) + parseInt(isNaN(annual_salary) ? 0 : annual_salary) + parseInt(isNaN(monthly_salary) ? 0 : monthly_salary)
 
@@ -89,13 +92,30 @@ $(() => {
         $(set).find('#totalIncome').text(totalIncome);
         $("#total_income").text(totalIncome)
         allIncomeAndExpenses.push(totalIncome)
-        testTotal = totalIncome + totalBennies + totalAssets - totalExpenses
-        $("#testTotal").text(testTotal)
+        totalIncomeAndExpenses = totalIncome + totalBennies + totalAssets - totalExpenses
+        $("#total_income_and_expenses").text(totalIncomeAndExpenses)
 
-
-
+        if (totalIncomeAndExpenses <= 0) {
+            affordableBailAmount = totalIncomeAndExpenses*0;
+        } else if (1 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 100) {
+            affordableBailAmount = totalIncomeAndExpenses*0.50;
+        } else if (101 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 200) {
+            affordableBailAmount = totalIncomeAndExpenses*0.55;
+        } else if (201 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 300) {
+            affordableBailAmount = totalIncomeAndExpenses*0.60
+        } else if (301 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 400) {
+            affordableBailAmount = totalIncomeAndExpenses*0.65;
+        } else if (401 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 500) {
+            affordableBailAmount = totalIncomeAndExpenses*0.70;
+        } else{
+            affordableBailAmount = totalIncomeAndExpenses*0.75;
+        }
+        console.log(totalIncomeAndExpenses)
+        // console.log(totalIncome)
+        $("#affordable_bail_amount").text(affordableBailAmount)
+    
     });
-    console.log(totalIncome)
+
     // totalIncomeFromBenefits
     $("#cashBenefits,#unemployment,#SSI,#SSD,#socialSecurity,#pensionRetirement,#anyOtherIncome").on('keyup', function () {
         var set = $(this).closest('fieldset');
@@ -115,8 +135,27 @@ $(() => {
 
         $("#total_benefits").text(totalBennies)
         allIncomeAndExpenses.push(totalBennies)
-        testTotal = totalIncome + totalBennies + totalAssets - totalExpenses
-        $("#testTotal").text(testTotal)
+        totalIncomeAndExpenses = totalIncome + totalBennies + totalAssets - totalExpenses
+        $("#total_income_and_expenses").text(totalIncomeAndExpenses)
+
+        if (totalIncomeAndExpenses <= 0) {
+            affordableBailAmount = totalIncomeAndExpenses*0;
+        } else if (1 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 100) {
+            affordableBailAmount = totalIncomeAndExpenses*0.50;
+        } else if (101 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 200) {
+            affordableBailAmount = totalIncomeAndExpenses*0.55;
+        } else if (201 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 300) {
+            affordableBailAmount = totalIncomeAndExpenses*0.60
+        } else if (301 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 400) {
+            affordableBailAmount = totalIncomeAndExpenses*0.65;
+        } else if (401 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 500) {
+            affordableBailAmount = totalIncomeAndExpenses*0.70;
+        } else{
+            affordableBailAmount = totalIncomeAndExpenses*0.75;
+        }
+        console.log(totalIncomeAndExpenses)
+        // console.log(totalBennies)
+        $("#affordable_bail_amount").text(affordableBailAmount)
     });
 
     // totalLiquidAssets
@@ -135,8 +174,27 @@ $(() => {
 
         $("#total_assets").text(totalAssets)
         allIncomeAndExpenses.push(totalAssets)
-        testTotal = totalIncome + totalBennies + totalAssets - totalExpenses
-        $("#testTotal").text(testTotal)
+        totalIncomeAndExpenses = totalIncome + totalBennies + totalAssets - totalExpenses
+        $("#total_income_and_expenses").text(totalIncomeAndExpenses)
+
+        if (totalIncomeAndExpenses <= 0) {
+            affordableBailAmount = totalIncomeAndExpenses*0;
+        } else if (1 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 100) {
+            affordableBailAmount = totalIncomeAndExpenses*0.50;
+        } else if (101 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 200) {
+            affordableBailAmount = totalIncomeAndExpenses*0.55;
+        } else if (201 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 300) {
+            affordableBailAmount = totalIncomeAndExpenses*0.60
+        } else if (301 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 400) {
+            affordableBailAmount = totalIncomeAndExpenses*0.65;
+        } else if (401 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 500) {
+            affordableBailAmount = totalIncomeAndExpenses*0.70;
+        } else{
+            affordableBailAmount = totalIncomeAndExpenses*0.75;
+        }
+        console.log(totalIncomeAndExpenses)
+        // console.log(totalAssets)
+        $("#affordable_bail_amount").text(affordableBailAmount)
     });
 
     // totalExpenses
@@ -161,12 +219,59 @@ $(() => {
 
         $("#total_expenses").text(totalExpenses)
         allIncomeAndExpenses.push(totalExpenses)
-        testTotal = totalIncome + totalBennies + totalAssets - totalExpenses
-        $("#testTotal").text(testTotal)
+        totalIncomeAndExpenses = totalIncome + totalBennies + totalAssets - totalExpenses
+        // console.log(totalIncomeAndExpenses)
+        $("#total_income_and_expenses").text(totalIncomeAndExpenses)
+
+        if (totalIncomeAndExpenses <= 0) {
+            affordableBailAmount = totalIncomeAndExpenses*0;
+        } else if (1 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 100) {
+            affordableBailAmount = totalIncomeAndExpenses*0.50;
+        } else if (101 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 200) {
+            affordableBailAmount = totalIncomeAndExpenses*0.55;
+        } else if (201 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 300) {
+            affordableBailAmount = totalIncomeAndExpenses*0.60
+        } else if (301 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 400) {
+            affordableBailAmount = totalIncomeAndExpenses*0.65;
+        } else if (401 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 500) {
+            affordableBailAmount = totalIncomeAndExpenses*0.70;
+        } else{
+            affordableBailAmount = totalIncomeAndExpenses*0.75;
+        }
+        console.log(totalIncomeAndExpenses)
+        // console.log(totalExpenses)
+        $("#affordable_bail_amount").text(affordableBailAmount)
     });
 
 });
 
+// oldCode
+// switch(totalIncomeAndExpenses) {
+//     case (totalIncomeAndExpenses <= 0):
+//         tester = totalIncomeAndExpenses*0;
+//       break;
+//     case (1 <= totalIncomeAndExpenses <= 100):
+//         tester = totalIncomeAndExpenses*0.50;
+//       break;
+//     case (101 <= totalIncomeAndExpenses <= 200):
+//         tester = totalIncomeAndExpenses*0.55;
+//       break;
+//     case (201 <= totalIncomeAndExpenses <= 300):
+//         tester = totalIncomeAndExpenses*0.60;
+//       break;
+//     case (301 <= totalIncomeAndExpenses <= 400):
+//         tester = totalIncomeAndExpenses*0.65;
+//       break;
+//     case (401 <= totalIncomeAndExpenses <= 500):
+//         tester = totalIncomeAndExpenses*0.70;
+//       break;
+//     case (totalIncomeAndExpenses >= 501):
+//         tester = totalIncomeAndExpenses*0.75;
+//       break;
+//     // default:
+//       // code block
+//   }
+//   console.log(tester)
 
 
 

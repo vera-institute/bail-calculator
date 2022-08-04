@@ -36,21 +36,22 @@ textarea {
   background-color: #FFFFFF;
 }
 
+/* flex */
 .input-group.flex {
   display: flex;
 }
-
 .input-group.flex>span {
   margin-left: 0px;
   margin-top: 1px;
 }
 
-
+/* groupset */
 .groupset {
   width: 600px;
   margin: 0 auto;
 }
 
+/* h1 */
 h1 {
   margin: 0 auto;
   padding: 0;
