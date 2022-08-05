@@ -71,7 +71,7 @@ $(() => {
             totalIncome = "0";
         }
         totalIncome = parseInt(isNaN(totalIncome) ? 0 : totalIncome)
-        console.log(totalIncome)
+        // console.log(totalIncome)
 
         $(set).find('#totalIncome').text(totalIncome);
         $("#total_income").text(totalIncome)
@@ -95,6 +95,7 @@ $(() => {
             affordableBailAmount = totalIncomeAndExpenses * 0.75;
         }
         console.log(totalIncomeAndExpenses)
+        affordableBailAmount = parseInt(isNaN(affordableBailAmount) ? 0 : affordableBailAmount)
         // console.log(totalIncome)
         $("#affordable_bail_amount").text(affordableBailAmount)
     });
@@ -137,6 +138,7 @@ $(() => {
         }
         console.log(totalIncomeAndExpenses)
         // console.log(totalBennies)
+        affordableBailAmount = parseInt(isNaN(affordableBailAmount) ? 0 : affordableBailAmount)
         $("#affordable_bail_amount").text(affordableBailAmount)
     });
 
@@ -175,6 +177,7 @@ $(() => {
         }
         console.log(totalIncomeAndExpenses)
         // console.log(totalAssets)
+        affordableBailAmount = parseInt(isNaN(affordableBailAmount) ? 0 : affordableBailAmount)
         $("#affordable_bail_amount").text(affordableBailAmount)
     });
 
@@ -220,6 +223,7 @@ $(() => {
         }
         console.log(totalIncomeAndExpenses)
         // console.log(totalExpenses)
+        affordableBailAmount = parseInt(isNaN(affordableBailAmount) ? 0 : affordableBailAmount)
         $("#affordable_bail_amount").text(affordableBailAmount)
     });
 });
