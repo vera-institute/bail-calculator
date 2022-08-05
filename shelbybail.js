@@ -20,11 +20,11 @@ function showSpecificFields(obj) {
     }
 }
 
-let hourly1
-let hourly2
-let salary1
+// incomeInputNumberHidden
+let hourly1;
+let hourly2;
+let salary1;
 
-// income
 function hourlySalaryCheck() {
     // salary2 = document.getElementById('monthlySalary')
     hourly1 = document.getElementById('hourlyWage')
@@ -41,34 +41,12 @@ function hourlySalaryCheck() {
     }
 }
 
-// var totalIncome
-
-// function incomeCompute() {
-//     var hourlyWageValue = parseInt(document.getElementById("hourlyWage").value);
-//     var hoursPerWeekValue = parseInt(document.getElementById("hoursPerWeek").value);
-//     var annualSalaryValue = parseInt(document.getElementById("annualSalary").value);
-//     var monthlySalaryValue = parseInt(document.getElementById("monthlySalary").value);
-
-//     // var totalIncome = ((hourlyWageValue * hoursPerWeekValue)*4);
-
-//     if (annualSalaryValue > 0) {
-//         totalIncome = (annualSalaryValue / 12)
-//     } else if (hourlyWageValue > 0) {
-//         totalIncome = ((hourlyWageValue * hoursPerWeekValue) * 4)
-//     } else {
-//         totalIncome = "Please Enter Values";
-//     }
-//     document.getElementById("totalIncome").innerHTML = totalIncome
-//     document.getElementById("total_income").innerText = totalIncome
-//     // console.log(totalIncome)
-// }
-
 // var totalIncome, totalIncomeFromBenefits, totalLiquidAssets, totalExpenses;
 let total = document.getElementById('testTotal')
 $(() => {
     let totalIncome = 0, totalBennies = 0, totalAssets = 0, totalExpenses = 0, totalIncomeAndExpenses = 0;
     let affordableBailAmount;
-    let allIncomeAndExpenses = [];
+    // let allIncomeAndExpenses = [];
 
     // totalIncome
     // ,#monthlySalary
@@ -82,21 +60,22 @@ $(() => {
 
         // totalIncome = parseInt(isNaN(hourly_wage) ? 0 : hourly_wage) + parseInt(isNaN(hours_per_week) ? 0 : hours_per_week) + parseInt(isNaN(annual_salary) ? 0 : annual_salary) + parseInt(isNaN(monthly_salary) ? 0 : monthly_salary)
 
-        // income
+        // monthlyIncomeCalculation
         if (annual_salary > 0 && salary1.type === 'number') {
-            totalIncome = Math.round(annual_salary / 12)
-            console.log('ONE')
+            totalIncome = (annual_salary / 12)
+            // console.log('ONE')
         } else if (hourly_wage > 0 && hourly1.type === 'number') {
-            totalIncome = Math.round((hourly_wage * hours_per_week) * 4)
-            console.log('two')
+            totalIncome = ((hourly_wage * hours_per_week) * 4)
+            // console.log('two')
         } else {
             totalIncome = "0";
         }
-
+        totalIncome = parseInt(isNaN(totalIncome) ? 0 : totalIncome)
+        console.log(totalIncome)
 
         $(set).find('#totalIncome').text(totalIncome);
         $("#total_income").text(totalIncome)
-        allIncomeAndExpenses.push(totalIncome)
+        // allIncomeAndExpenses.push(totalIncome)
         totalIncomeAndExpenses = totalIncome + totalBennies + totalAssets - totalExpenses
         $("#total_income_and_expenses").text(totalIncomeAndExpenses)
 
@@ -118,7 +97,6 @@ $(() => {
         console.log(totalIncomeAndExpenses)
         // console.log(totalIncome)
         $("#affordable_bail_amount").text(affordableBailAmount)
-
     });
 
     // totalIncomeFromBenefits
@@ -133,13 +111,12 @@ $(() => {
         var pension = $(set).find('#pensionRetirement').val() == '' ? 0 : $(set).find('#pensionRetirement').val();
         var other = $(set).find('#anyOtherIncome').val() == '' ? 0 : $(set).find('#anyOtherIncome').val();
 
-        totalBennies = Math.round(parseInt(isNaN(cash_benefits) ? 0 : cash_benefits) + parseInt(isNaN(unemployment) ? 0 : unemployment) + parseInt(isNaN(ssi) ? 0 : ssi) + parseInt(isNaN(ssd) ? 0 : ssd) + parseInt(isNaN(social) ? 0 : social) + parseInt(isNaN(pension) ? 0 : pension) + parseInt(isNaN(other) ? 0 : other))
-
+        totalBennies = parseInt(isNaN(cash_benefits) ? 0 : cash_benefits) + parseInt(isNaN(unemployment) ? 0 : unemployment) + parseInt(isNaN(ssi) ? 0 : ssi) + parseInt(isNaN(ssd) ? 0 : ssd) + parseInt(isNaN(social) ? 0 : social) + parseInt(isNaN(pension) ? 0 : pension) + parseInt(isNaN(other) ? 0 : other)
 
         $(set).find('#totalIncomeFromBenefits').text(totalBennies);
 
         $("#total_benefits").text(totalBennies)
-        allIncomeAndExpenses.push(totalBennies)
+        // allIncomeAndExpenses.push(totalBennies)
         totalIncomeAndExpenses = totalIncome + totalBennies + totalAssets - totalExpenses
         $("#total_income_and_expenses").text(totalIncomeAndExpenses)
 
@@ -174,11 +151,10 @@ $(() => {
 
         totalAssets = parseInt(isNaN(checking_account) ? 0 : checking_account) + parseInt(isNaN(savings_account) ? 0 : savings_account) + parseInt(isNaN(cash_available_now) ? 0 : cash_available_now) + parseInt(isNaN(other_assets) ? 0 : other_assets)
 
-
         $(set).find('#totalLiquidAssets').text(totalAssets);
 
         $("#total_assets").text(totalAssets)
-        allIncomeAndExpenses.push(totalAssets)
+        // allIncomeAndExpenses.push(totalAssets)
         totalIncomeAndExpenses = totalIncome + totalBennies + totalAssets - totalExpenses
         $("#total_income_and_expenses").text(totalIncomeAndExpenses)
 
@@ -219,11 +195,10 @@ $(() => {
 
         totalExpenses = parseInt(isNaN(housing) ? 0 : housing) + parseInt(isNaN(electricity_gas) ? 0 : electricity_gas) + parseInt(isNaN(food_grocery) ? 0 : food_grocery) + parseInt(isNaN(transportation) ? 0 : transportation) + parseInt(isNaN(phone) ? 0 : phone) + parseInt(isNaN(student_loans) ? 0 : student_loans) + parseInt(isNaN(child_support) ? 0 : child_support) + parseInt(isNaN(medical) ? 0 : medical) + parseInt(isNaN(tv_internet) ? 0 : tv_internet) + parseInt(isNaN(other) ? 0 : other)
 
-
         $(set).find('#totalExpenses').text(totalExpenses);
 
         $("#total_expenses").text(totalExpenses)
-        allIncomeAndExpenses.push(totalExpenses)
+        // allIncomeAndExpenses.push(totalExpenses)
         totalIncomeAndExpenses = totalIncome + totalBennies + totalAssets - totalExpenses
         // console.log(totalIncomeAndExpenses)
         $("#total_income_and_expenses").text(totalIncomeAndExpenses)
@@ -247,10 +222,31 @@ $(() => {
         // console.log(totalExpenses)
         $("#affordable_bail_amount").text(affordableBailAmount)
     });
-
 });
 
 // oldCode
+// var totalIncome
+
+// function incomeCompute() {
+//     var hourlyWageValue = parseInt(document.getElementById("hourlyWage").value);
+//     var hoursPerWeekValue = parseInt(document.getElementById("hoursPerWeek").value);
+//     var annualSalaryValue = parseInt(document.getElementById("annualSalary").value);
+//     var monthlySalaryValue = parseInt(document.getElementById("monthlySalary").value);
+
+//     // var totalIncome = ((hourlyWageValue * hoursPerWeekValue)*4);
+
+//     if (annualSalaryValue > 0) {
+//         totalIncome = (annualSalaryValue / 12)
+//     } else if (hourlyWageValue > 0) {
+//         totalIncome = ((hourlyWageValue * hoursPerWeekValue) * 4)
+//     } else {
+//         totalIncome = "Please Enter Values";
+//     }
+//     document.getElementById("totalIncome").innerHTML = totalIncome
+//     document.getElementById("total_income").innerText = totalIncome
+//     // console.log(totalIncome)
+// }
+
 // switch(totalIncomeAndExpenses) {
 //     case (totalIncomeAndExpenses <= 0):
 //         tester = totalIncomeAndExpenses*0;
@@ -277,10 +273,6 @@ $(() => {
 //       // code block
 //   }
 //   console.log(tester)
-
-
-
-
 
 // function incomeFromBenefitsCompute() {
 //     var cashBenefitsValue = parseInt(document.getElementById("cashBenefits").value);
