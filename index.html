@@ -18,10 +18,10 @@
     <!-- <h3>(Please fill in 0 if category is not applicable)</h3> -->
 
     <!-- backgroundInformation -->
-    <fieldset class="groupset">
-        <legend>Background Information</legend>
+    <!-- <fieldset class="groupset"> -->
+        <!-- <legend>Background Information</legend> -->
         <!-- <h2>Background Information</h2> -->
-        <h1 class="head-title"></h1>
+        <!-- <h1 class="head-title"></h1>
         <div class="input-group">
             <label for="firstName">First Name</label>
             <input class="input-text" type="text" id="firstName" placeholder="First Name">
@@ -33,15 +33,16 @@
         <div class="input-group">
             <label for="charge">Charge</label>
             <input class="input-text" type="text" id="charge" placeholder="Charge">
-        </div>
-    </fieldset>
+        </div> -->
+    <!-- </fieldset> -->
 
     <!-- income -->
+    <form>
     <fieldset class="groupset">
         <legend>Income</legend>
         <!-- <h2>Income</h2> -->
         <h1 class="head-title"></h1>
-        <div class="input-group">
+        <!-- <div class="input-group">
             <label for="studentStatus">Are You a Student?</label>
             <form>
                 <input type="radio" id="yes" name="student_status" value="Yes">
@@ -59,9 +60,9 @@
             <div class="input-group">
                 <label for="employerName">Employer Name: </label>
                 <input class="input-text" type="text" id="employerName" placeholder="Employer Name">
-            </div>
+            </div> -->
             <!-- <h4>How long?</h4> -->
-            <label for="howLong">How Long?</label>
+            <!-- <label for="howLong">How Long?</label>
             <div class="input-group">
                 <input class="input-text" type="number" id="years" placeholder="Years">
                 <label for="years">Years</label>
@@ -69,8 +70,7 @@
             <div class="input-group">
                 <input class="input-text" type="number" id="months" placeholder="Months">
                 <label for="months">Months</label>
-            </div>
-
+            </div> -->
             <label for="payType">Are you paid hourly or by salary?</label>
             <br>
             <input type="radio" onclick="hourlySalaryCheck();" name="hourlysalary" id="hourlyCheck" /> Hourly
@@ -91,12 +91,14 @@
             <span class="total-income-amount" id="totalIncome">0</span>
         </div>
     </fieldset>
+    </form>
+   
 
     <!-- dependents -->
-    <fieldset class="groupset">
-        <legend>Dependents</legend>
+    <!-- <fieldset class="groupset">
+        <legend>Dependents</legend> -->
         <!-- <h2>Dependents</h2> -->
-        <div class="input-group">
+        <!-- <div class="input-group">
             <label for="children">How Many Children Do You Have?</label>
             <input class="input-text" type="number" id="children" placeholder="Children">
         </div>
@@ -108,15 +110,16 @@
             <label for="otherDependents">Any Other Dependents?</label>
             <input class="input-text" type="number" id="otherDependents" placeholder="Other Dependents">
         </div>
-    </fieldset>
+    </fieldset> -->
 
     <!-- incomeFromBenefits -->
+    <form>
     <fieldset class="groupset">
         <legend>Income From Benefits</legend>
         <!-- <h2>Income From Benefits</h2> -->
         <!-- <h3>Do You Get?</h3> -->
         <!-- checkbox -->
-        <form>
+        <!-- <form>
             <fieldset>
                 <legend>Do You Get?</legend>
                 <div>
@@ -145,7 +148,7 @@
                 </div>
 
             </fieldset>
-        </form>
+        </form> -->
         <!-- input -->
         <h1 class="head-title"></h1>
         <div class="input-group">
@@ -184,8 +187,10 @@
             <span class="total-benefits-amount" id="totalIncomeFromBenefits">0</span>
         </div>
     </fieldset>
+</form>
 
     <!-- liquidAssets -->
+    <form>
     <fieldset class="groupset">
         <legend>Liquid Assets</legend>
         <!-- <h2>Liquid Assets</h2> -->
@@ -204,7 +209,7 @@
             <input onClick="this.select();" class="input-text" type="number" id="cashAvailableNow" value="0">
         </div>
         <!-- checkbox -->
-        <form>
+        <!-- <form>
             <fieldset>
                 <legend>Do You Own: </legend>
                 <div>
@@ -221,9 +226,9 @@
                     <input type="text" id="other" name="other" placeholder="Other Property Type" />
                 </div>
             </fieldset>
-        </form>
+        </form> -->
         <div class="input-group">
-            <label for="otherAssets">Approximate Value: $</label>
+            <label for="otherAssets">Approximate Value of Home/Vehicle/Other High Value Property You Own: $</label>
             <input onClick="this.select();" class="input-text" type="number" id="otherAssets" value="0">
         </div>
         <!-- <div class="button-group">
@@ -234,8 +239,10 @@
             <span class="total-liquid-assets-amount" id="totalLiquidAssets">0</span>
         </div>
     </fieldset>
+</form>
 
     <!-- expenses -->
+    <form>
     <fieldset class="groupset">
         <legend>Expenses</legend>
         <!-- <h2>Expenses</h2> -->
@@ -289,8 +296,10 @@
             <span class="tot-expenses-amount" id="totalExpenses">0</span>
         </div>
     </fieldset>
+</form>
 
     <!-- calculations -->
+    <form>
     <fieldset class="groupset">
         <!-- <h2>Calculations</h2> -->
         <legend>Calculations</legend>
@@ -328,6 +337,7 @@
         <label for="calcs">Affordable Bail Amount: $</label>
         <span id="affordable_bail_amount"></span>
     </fieldset>
+</form>
 </body>
 
 </html>
