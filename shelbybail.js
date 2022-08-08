@@ -65,12 +65,13 @@ $(() => {
             totalIncome = (annual_salary / 12)
             // console.log('ONE')
         } else if (hourly_wage > 0 && hourly1.type === 'number') {
-            totalIncome = ((hourly_wage * hours_per_week) * 4)
+            totalIncome = ((hourly_wage * hours_per_week) * 4.33)
             // console.log('two')
         } else {
             totalIncome = "0";
         }
-        totalIncome = parseInt(isNaN(totalIncome) ? 0 : totalIncome)
+        // totalIncome = parseInt(isNaN(totalIncome) ? 0 : totalIncome)
+        totalIncome = Math.round(parseFloat(isNaN(totalIncome) ? 0 : totalIncome))
         // console.log(totalIncome)
 
         $(set).find('#totalIncome').text(totalIncome);
@@ -95,7 +96,8 @@ $(() => {
             affordableBailAmount = totalIncomeAndExpenses * 0.75;
         }
         console.log(totalIncomeAndExpenses)
-        affordableBailAmount = parseInt(isNaN(affordableBailAmount) ? 0 : affordableBailAmount)
+        affordableBailAmount = Math.round(parseFloat(isNaN(affordableBailAmount) ? 0 : affordableBailAmount))
+        // affordableBailAmount = parseInt(isNaN(affordableBailAmount) ? 0 : affordableBailAmount)
         // console.log(totalIncome)
         $("#affordable_bail_amount").text(affordableBailAmount)
     });
@@ -112,7 +114,8 @@ $(() => {
         var pension = $(set).find('#pensionRetirement').val() == '' ? 0 : $(set).find('#pensionRetirement').val();
         var other = $(set).find('#anyOtherIncome').val() == '' ? 0 : $(set).find('#anyOtherIncome').val();
 
-        totalBennies = parseInt(isNaN(cash_benefits) ? 0 : cash_benefits) + parseInt(isNaN(unemployment) ? 0 : unemployment) + parseInt(isNaN(ssi) ? 0 : ssi) + parseInt(isNaN(ssd) ? 0 : ssd) + parseInt(isNaN(social) ? 0 : social) + parseInt(isNaN(pension) ? 0 : pension) + parseInt(isNaN(other) ? 0 : other)
+        totalBennies = Math.round(parseFloat(isNaN(cash_benefits) ? 0 : cash_benefits) + parseFloat(isNaN(unemployment) ? 0 : unemployment) + parseFloat(isNaN(ssi) ? 0 : ssi) + parseFloat(isNaN(ssd) ? 0 : ssd) + parseFloat(isNaN(social) ? 0 : social) + parseFloat(isNaN(pension) ? 0 : pension) + parseFloat(isNaN(other) ? 0 : other))
+        // totalBennies = parseInt(isNaN(cash_benefits) ? 0 : cash_benefits) + parseInt(isNaN(unemployment) ? 0 : unemployment) + parseInt(isNaN(ssi) ? 0 : ssi) + parseInt(isNaN(ssd) ? 0 : ssd) + parseInt(isNaN(social) ? 0 : social) + parseInt(isNaN(pension) ? 0 : pension) + parseInt(isNaN(other) ? 0 : other)
 
         $(set).find('#totalIncomeFromBenefits').text(totalBennies);
 
@@ -138,7 +141,8 @@ $(() => {
         }
         console.log(totalIncomeAndExpenses)
         // console.log(totalBennies)
-        affordableBailAmount = parseInt(isNaN(affordableBailAmount) ? 0 : affordableBailAmount)
+        affordableBailAmount = Math.round(parseFloat(isNaN(affordableBailAmount) ? 0 : affordableBailAmount))
+        // affordableBailAmount = parseInt(isNaN(affordableBailAmount) ? 0 : affordableBailAmount)
         $("#affordable_bail_amount").text(affordableBailAmount)
     });
 
@@ -151,7 +155,8 @@ $(() => {
         var cash_available_now = $(set).find('#cashAvailableNow').val() == '' ? 0 : $(set).find('#cashAvailableNow').val();
         var other_assets = $(set).find('#otherAssets').val() == '' ? 0 : $(set).find('#otherAssets').val();
 
-        totalAssets = parseInt(isNaN(checking_account) ? 0 : checking_account) + parseInt(isNaN(savings_account) ? 0 : savings_account) + parseInt(isNaN(cash_available_now) ? 0 : cash_available_now) + parseInt(isNaN(other_assets) ? 0 : other_assets)
+        totalAssets = Math.round(parseFloat(isNaN(checking_account) ? 0 : checking_account) + parseFloat(isNaN(savings_account) ? 0 : savings_account) + parseFloat(isNaN(cash_available_now) ? 0 : cash_available_now) + parseFloat(isNaN(other_assets) ? 0 : other_assets))
+        // totalAssets = parseInt(isNaN(checking_account) ? 0 : checking_account) + parseInt(isNaN(savings_account) ? 0 : savings_account) + parseInt(isNaN(cash_available_now) ? 0 : cash_available_now) + parseInt(isNaN(other_assets) ? 0 : other_assets)
 
         $(set).find('#totalLiquidAssets').text(totalAssets);
 
@@ -177,7 +182,8 @@ $(() => {
         }
         console.log(totalIncomeAndExpenses)
         // console.log(totalAssets)
-        affordableBailAmount = parseInt(isNaN(affordableBailAmount) ? 0 : affordableBailAmount)
+        affordableBailAmount = Math.round(parseFloat(isNaN(affordableBailAmount) ? 0 : affordableBailAmount))
+        // affordableBailAmount = parseInt(isNaN(affordableBailAmount) ? 0 : affordableBailAmount)
         $("#affordable_bail_amount").text(affordableBailAmount)
     });
 
@@ -196,7 +202,8 @@ $(() => {
         var tv_internet = $(set).find('#payTvInternet').val() == '' ? 0 : $(set).find('#payTvInternet').val();
         var other = $(set).find('#payOther').val() == '' ? 0 : $(set).find('#payOther').val();
 
-        totalExpenses = parseInt(isNaN(housing) ? 0 : housing) + parseInt(isNaN(electricity_gas) ? 0 : electricity_gas) + parseInt(isNaN(food_grocery) ? 0 : food_grocery) + parseInt(isNaN(transportation) ? 0 : transportation) + parseInt(isNaN(phone) ? 0 : phone) + parseInt(isNaN(student_loans) ? 0 : student_loans) + parseInt(isNaN(child_support) ? 0 : child_support) + parseInt(isNaN(medical) ? 0 : medical) + parseInt(isNaN(tv_internet) ? 0 : tv_internet) + parseInt(isNaN(other) ? 0 : other)
+        totalExpenses = Math.round(parseFloat(isNaN(housing) ? 0 : housing) + parseFloat(isNaN(electricity_gas) ? 0 : electricity_gas) + parseFloat(isNaN(food_grocery) ? 0 : food_grocery) + parseFloat(isNaN(transportation) ? 0 : transportation) + parseFloat(isNaN(phone) ? 0 : phone) + parseFloat(isNaN(student_loans) ? 0 : student_loans) + parseFloat(isNaN(child_support) ? 0 : child_support) + parseFloat(isNaN(medical) ? 0 : medical) + parseFloat(isNaN(tv_internet) ? 0 : tv_internet) + parseFloat(isNaN(other) ? 0 : other))
+        // totalExpenses = parseInt(isNaN(housing) ? 0 : housing) + parseInt(isNaN(electricity_gas) ? 0 : electricity_gas) + parseInt(isNaN(food_grocery) ? 0 : food_grocery) + parseInt(isNaN(transportation) ? 0 : transportation) + parseInt(isNaN(phone) ? 0 : phone) + parseInt(isNaN(student_loans) ? 0 : student_loans) + parseInt(isNaN(child_support) ? 0 : child_support) + parseInt(isNaN(medical) ? 0 : medical) + parseInt(isNaN(tv_internet) ? 0 : tv_internet) + parseInt(isNaN(other) ? 0 : other)
 
         $(set).find('#totalExpenses').text(totalExpenses);
 
@@ -223,7 +230,8 @@ $(() => {
         }
         console.log(totalIncomeAndExpenses)
         // console.log(totalExpenses)
-        affordableBailAmount = parseInt(isNaN(affordableBailAmount) ? 0 : affordableBailAmount)
+        affordableBailAmount = Math.round(parseFloat(isNaN(affordableBailAmount) ? 0 : affordableBailAmount))
+        // affordableBailAmount = parseInt(isNaN(affordableBailAmount) ? 0 : affordableBailAmount)
         $("#affordable_bail_amount").text(affordableBailAmount)
     });
 });
