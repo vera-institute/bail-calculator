@@ -147,15 +147,17 @@ $(() => {
     });
 
     // totalLiquidAssets
-    $("#checkingAccount,#savingsAccount,#cashAvailableNow,#otherAssets").on('keyup', function () {
+    // ,#otherAssets
+    $("#checkingAccount,#savingsAccount,#cashAvailableNow").on('keyup', function () {
         var set = $(this).closest('fieldset');
 
         var checking_account = $(set).find('#checkingAccount').val() == '' ? 0 : $(set).find('#checkingAccount').val();
         var savings_account = $(set).find('#savingsAccount').val() == '' ? 0 : $(set).find('#savingsAccount').val();
         var cash_available_now = $(set).find('#cashAvailableNow').val() == '' ? 0 : $(set).find('#cashAvailableNow').val();
-        var other_assets = $(set).find('#otherAssets').val() == '' ? 0 : $(set).find('#otherAssets').val();
+        // var other_assets = $(set).find('#otherAssets').val() == '' ? 0 : $(set).find('#otherAssets').val();
 
-        totalAssets = Math.round(parseFloat(isNaN(checking_account) ? 0 : checking_account) + parseFloat(isNaN(savings_account) ? 0 : savings_account) + parseFloat(isNaN(cash_available_now) ? 0 : cash_available_now) + parseFloat(isNaN(other_assets) ? 0 : other_assets))
+        totalAssets = Math.round(parseFloat(isNaN(checking_account) ? 0 : checking_account) + parseFloat(isNaN(savings_account) ? 0 : savings_account) + parseFloat(isNaN(cash_available_now) ? 0 : cash_available_now))
+        // + parseFloat(isNaN(other_assets) ? 0 : other_assets)
         // totalAssets = parseInt(isNaN(checking_account) ? 0 : checking_account) + parseInt(isNaN(savings_account) ? 0 : savings_account) + parseInt(isNaN(cash_available_now) ? 0 : cash_available_now) + parseInt(isNaN(other_assets) ? 0 : other_assets)
 
         $(set).find('#totalLiquidAssets').text(totalAssets);
@@ -234,6 +236,7 @@ $(() => {
         // affordableBailAmount = parseInt(isNaN(affordableBailAmount) ? 0 : affordableBailAmount)
         $("#affordable_bail_amount").text(affordableBailAmount)
     });
+    
 });
 
 // oldCode

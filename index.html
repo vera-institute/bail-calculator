@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ability to Pay Calculator (Shelby County, Tennessee)</title>
+    <title>Affordable Bail Calculator (Shelby County, Tennessee)</title>
     <link rel="stylesheet" type="text/css" href="shelbybail.css">
 </head>
 
@@ -13,7 +13,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="shelbybail.js"></script>
     <!-- headingInformation -->
-    <h1>Shelby County, Tennessee Bail Calculator</h1>
+    <h1>Affordable Bail Calculator</h1>
+    <!-- <h1>Shelby County, Tennessee Bail Calculator</h1> -->
     <!-- <h1>Financial Assessment</h1> -->
     <!-- <h3>(Please fill in 0 if category is not applicable)</h3> -->
 
@@ -87,8 +88,8 @@
             <button class="button-primary" onclick="incomeCompute()">Calculate</button>
         </div> -->
         <div class="input-group flex">
-            <label for="totalIncome">Total Monthly Income: $</label>
-            <span class="total-income-amount" id="totalIncome">0</span>
+            <label for="totalIncome"><b>Total Monthly Earnings: $</b></label>
+            <span style="font-weight:bold" class="total-income-amount" id="totalIncome">0</span>
         </div>
     </fieldset>
     </form>
@@ -183,11 +184,11 @@
         <button class="button-primary" onclick="incomeFromBenefitsCompute()">Calculate</button>
     </div> -->
         <div class="input-group flex">
-            <label for="totalIncomeFromBenefits">Total Benefits: $</label>
-            <span class="total-benefits-amount" id="totalIncomeFromBenefits">0</span>
+            <label for="totalIncomeFromBenefits"><b>Total Monthly Benefits: $</b></label>
+            <span style="font-weight:bold" class="total-benefits-amount" id="totalIncomeFromBenefits">0</span>
         </div>
     </fieldset>
-</form>
+    </form>
 
     <!-- liquidAssets -->
     <form>
@@ -227,19 +228,19 @@
                 </div>
             </fieldset>
         </form> -->
-        <div class="input-group">
+        <!-- <div class="input-group">
             <label for="otherAssets">Approximate Value of Home/Vehicle/Other High Value Property You Own: $</label>
             <input onClick="this.select();" class="input-text" type="number" id="otherAssets" value="0">
-        </div>
+        </div> -->
         <!-- <div class="button-group">
             <button class="button-primary" onclick="liquidAssetsCompute()">Calculate</button>
         </div> -->
         <div class="input-group flex">
-            <label for="totalLiquidAssets">Total Liquid Assets: $</label>
-            <span class="total-liquid-assets-amount" id="totalLiquidAssets">0</span>
+            <label for="totalLiquidAssets"><b>Total Liquid Assets: $</b></label>
+            <span style="font-weight:bold" class="total-liquid-assets-amount" id="totalLiquidAssets">0</span>
         </div>
     </fieldset>
-</form>
+    </form>
 
     <!-- expenses -->
     <form>
@@ -292,51 +293,54 @@
             <button class="button-primary" onclick="expensesCompute()">Calculate</button>
         </div> -->
         <div class="input-group flex">
-            <label for="totalExpenses">Total Expenses: $</label>
-            <span class="tot-expenses-amount" id="totalExpenses">0</span>
+            <label for="totalExpenses"><b>Total Monthly Expenses: $</b></label>
+            <span style="font-weight:bold" class="tot-expenses-amount" id="totalExpenses">0</span>
         </div>
     </fieldset>
-</form>
+    </form>
 
     <!-- calculations -->
-    <form>
+    <!-- <form>deleted -->
     <fieldset class="groupset">
         <!-- <h2>Calculations</h2> -->
         <legend>Calculations</legend>
-        <label for="calcs">Total Monthly Income: $</label>
+        <label for="calcs">Total Monthly Earnings: $</label>
         <span id="total_income"></span>
 
         <label for="calcs">+</label>
-        <p></p>
+        <!-- <p></p> -->
 
-        <label for="calcs">Total Benefits: $</label>
+        <label for="calcs">Total Monthly Benefits: $</label>
         <span id="total_benefits"></span>
 
         <label for="calcs">+</label>
-        <p></p>
+        <!-- <p></p> -->
 
         <label for="calcs">Total Liquid Assets: $</label>
         <span id="total_assets"></span>
 
         <label for="calcs">-</label>
-        <p></p>
+        <!-- <p></p> -->
 
-        <label for="calcs">Total Expenses: $</label>
+        <label for="calcs">Total Monthly Expenses: $</label>
         <span id="total_expenses"></span>
 
+
+        <label for="calcs">=</label>
         <p></p>
 
-        <label for="calcs">Gross Monthly Disposable Income: $</label>
-        <span id="total_income_and_expenses"></span>
+        <label for="calcs"><b>Gross Monthly Disposable Income: $</b></label>
+        <span style="font-weight:bold" id="total_income_and_expenses"></span>
     </fieldset>
 
     <!-- affordableBailAmount -->
     <fieldset class="groupset">
         <!-- <h2>Affordable Bail Amount</h2> -->
         <legend>Affordable Bail Amount</legend>
-        <label for="calcs">Affordable Bail Amount: $</label>
-        <span id="affordable_bail_amount"></span>
+        <label for="calcs"><b>Affordable Bail Amount: $</b></label>
+        <span style="font-weight:bold" id="affordable_bail_amount"></span>
     </fieldset>
+
 </form>
 </body>
 
