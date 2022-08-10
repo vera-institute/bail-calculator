@@ -103,7 +103,7 @@ $(() => {
         affordableBailAmount = Math.round(parseFloat(isNaN(affordableBailAmount) ? 0 : affordableBailAmount))
         // affordableBailAmount = parseInt(isNaN(affordableBailAmount) ? 0 : affordableBailAmount)
         // console.log(totalIncome)
-        $("#affordable_bail_amount").text(addCommas(affordableBailAmount))
+        $("#affordable_bail_amount").text(addCommas(+affordableBailAmount))
     });
 
     // totalIncomeFromBenefits
