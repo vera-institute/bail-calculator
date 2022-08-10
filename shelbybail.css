@@ -1,7 +1,7 @@
 /* font */
 html {
   /* font-family: Calibri, sans-serif; */
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
   font-size: 16px;
 }
 
@@ -36,6 +36,7 @@ textarea {
   background-color: #FFFFFF;
 }
 
+/* flex */
 .input-group.flex {
   display: flex;
 }
@@ -45,13 +46,79 @@ textarea {
   margin-top: 1px;
 }
 
-
+/* groupset */
 .groupset {
-  width: 600px;
+  /* width: 600px; */
+  /* max-width: 100%; */
+  width: auto;
+  max-width: 600px;
   margin: 0 auto;
+  padding: 1em;
+  margin-top: 1em;
 }
 
+/* input */
+input {
+  border: 1px solid #333;
+  border-radius: 2px;
+  margin: 0.5em 0;
+  padding: 0.3em;
+}
+
+/* h1 */
 h1 {
   margin: 0 auto;
   padding: 0;
+  text-align: center;
 }
+
+/* h4 */
+h4 {
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+  font-size: 16px;
+}
+
+/* fonts */
+/* loadVeraFonts */
+@font-face {
+  font-family: "Whyte Black";
+  src: url(fonts/ABCWhyte-Black.woff) format("woff");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Whyte Bold";
+  src: url(fonts/ABCWhyte-Bold.woff) format("woff");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Whyte Book";
+  src: url(fonts/ABCWhyte-Book.woff) format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT Sectra Bold";
+  src: url(fonts/gt-sectra-bold-webfont.woff) format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* applyFonts */
+body {
+  font-family: "Whyte Book", sans-serif;
+}
+
+/* resetButton */
+button {
+  margin: 0 auto;
+  display: block;
+  font-family: "Whyte Book", sans-serif;
+}
+/* #reset {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+} */

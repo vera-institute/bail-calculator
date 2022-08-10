@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ability to Pay Calculator (Shelby County, Tennessee)</title>
+    <title>Affordable Bail Calculator</title>
     <link rel="stylesheet" type="text/css" href="shelbybail.css">
 </head>
 
@@ -13,15 +13,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="shelbybail.js"></script>
     <!-- headingInformation -->
-    <h1>Shelby County, Tennessee Bail Calculator</h1>
+    <h1>Affordable Bail Calculator</h1>
+    <!-- <h1>Shelby County, Tennessee Bail Calculator</h1> -->
     <!-- <h1>Financial Assessment</h1> -->
     <!-- <h3>(Please fill in 0 if category is not applicable)</h3> -->
 
     <!-- backgroundInformation -->
-    <fieldset class="groupset">
-        <legend>Background Information</legend>
+    <!-- <fieldset class="groupset"> -->
+        <!-- <legend>Background Information</legend> -->
         <!-- <h2>Background Information</h2> -->
-        <h1 class="head-title"></h1>
+        <!-- <h1 class="head-title"></h1>
         <div class="input-group">
             <label for="firstName">First Name</label>
             <input class="input-text" type="text" id="firstName" placeholder="First Name">
@@ -33,15 +34,16 @@
         <div class="input-group">
             <label for="charge">Charge</label>
             <input class="input-text" type="text" id="charge" placeholder="Charge">
-        </div>
-    </fieldset>
+        </div> -->
+    <!-- </fieldset> -->
 
     <!-- income -->
+    <form>
     <fieldset class="groupset">
-        <legend>Income</legend>
+        <legend>Earnings</legend>
         <!-- <h2>Income</h2> -->
         <h1 class="head-title"></h1>
-        <div class="input-group">
+        <!-- <div class="input-group">
             <label for="studentStatus">Are You a Student?</label>
             <form>
                 <input type="radio" id="yes" name="student_status" value="Yes">
@@ -59,9 +61,9 @@
             <div class="input-group">
                 <label for="employerName">Employer Name: </label>
                 <input class="input-text" type="text" id="employerName" placeholder="Employer Name">
-            </div>
+            </div> -->
             <!-- <h4>How long?</h4> -->
-            <label for="howLong">How Long?</label>
+            <!-- <label for="howLong">How Long?</label>
             <div class="input-group">
                 <input class="input-text" type="number" id="years" placeholder="Years">
                 <label for="years">Years</label>
@@ -69,8 +71,7 @@
             <div class="input-group">
                 <input class="input-text" type="number" id="months" placeholder="Months">
                 <label for="months">Months</label>
-            </div>
-
+            </div> -->
             <label for="payType">Are you paid hourly or by salary?</label>
             <br>
             <input type="radio" onclick="hourlySalaryCheck();" name="hourlysalary" id="hourlyCheck" /> Hourly
@@ -81,24 +82,24 @@
             <input type="hidden" id="hoursPerWeek" name="hoursPerWeek" placeholder="Hours Per Week" />
 
             <input type="hidden" id="annualSalary" name="annualSalary" placeholder="Annual Salary ($)">
-            <input type="hidden" id="monthlySalary" name="monthlySalary" placeholder="Monthly Salary ($)">
-
-            <!-- <button type="submit" class="btn btn-success">Register</button>   -->
+            <!-- <input type="hidden" id="monthlySalary" name="monthlySalary" placeholder="Monthly Salary ($)"> -->
         </div>
-        <div class="button-group">
+        <!-- <div class="button-group">
             <button class="button-primary" onclick="incomeCompute()">Calculate</button>
-        </div>
-        <div class="input-group">
-            <label for="totalIncome">Total Monthly Income: $</label>
-            <p class="total-income-amount" id="totalIncome"></p>
+        </div> -->
+        <div class="input-group flex">
+            <label for="totalIncome"><b>Total Monthly Earnings: $</b></label>
+            <span style="font-weight:bold" class="total-income-amount" id="totalIncome">0</span>
         </div>
     </fieldset>
+    <!-- </form>delete -->
+   
 
     <!-- dependents -->
-    <fieldset class="groupset">
-        <legend>Dependents</legend>
+    <!-- <fieldset class="groupset">
+        <legend>Dependents</legend> -->
         <!-- <h2>Dependents</h2> -->
-        <div class="input-group">
+        <!-- <div class="input-group">
             <label for="children">How Many Children Do You Have?</label>
             <input class="input-text" type="number" id="children" placeholder="Children">
         </div>
@@ -110,15 +111,16 @@
             <label for="otherDependents">Any Other Dependents?</label>
             <input class="input-text" type="number" id="otherDependents" placeholder="Other Dependents">
         </div>
-    </fieldset>
+    </fieldset> -->
 
     <!-- incomeFromBenefits -->
+    <!-- <form>delete -->
     <fieldset class="groupset">
         <legend>Income From Benefits</legend>
         <!-- <h2>Income From Benefits</h2> -->
         <!-- <h3>Do You Get?</h3> -->
         <!-- checkbox -->
-        <form>
+        <!-- <form>
             <fieldset>
                 <legend>Do You Get?</legend>
                 <div>
@@ -145,11 +147,9 @@
                     <input type="checkbox" id="medicaidMedicare" name="source" value="medicaidMedicare">
                     <label for="medicaidMedicare">Medicaid/Medicare</label>
                 </div>
-                <!-- <div>
-        <button type="submit">Submit form</button>
-      </div> -->
+
             </fieldset>
-        </form>
+        </form> -->
         <!-- input -->
         <h1 class="head-title"></h1>
         <div class="input-group">
@@ -184,16 +184,18 @@
         <button class="button-primary" onclick="incomeFromBenefitsCompute()">Calculate</button>
     </div> -->
         <div class="input-group flex">
-            <label for="totalIncomeFromBenefits">Total Benefits: $</label>
-            <span class="total-benefits-amount" id="totalIncomeFromBenefits">0</span>
+            <label for="totalIncomeFromBenefits"><b>Total Monthly Benefits: $</b></label>
+            <span style="font-weight:bold" class="total-benefits-amount" id="totalIncomeFromBenefits">0</span>
         </div>
     </fieldset>
+    <!-- </form>delete -->
 
     <!-- liquidAssets -->
+    <!-- <form>delete -->
     <fieldset class="groupset">
         <legend>Liquid Assets</legend>
         <!-- <h2>Liquid Assets</h2> -->
-        <h4>How Much Do You Have In: </h4>
+        <p>How Much Do You Have In: </p>
         <h1 class="head-title"></h1>
         <div class="input-group">
             <label for="checkingAccount">Checking Account: $</label>
@@ -208,7 +210,7 @@
             <input onClick="this.select();" class="input-text" type="number" id="cashAvailableNow" value="0">
         </div>
         <!-- checkbox -->
-        <form>
+        <!-- <form>
             <fieldset>
                 <legend>Do You Own: </legend>
                 <div>
@@ -225,25 +227,27 @@
                     <input type="text" id="other" name="other" placeholder="Other Property Type" />
                 </div>
             </fieldset>
-        </form>
-        <div class="input-group">
-            <label for="otherAssets">Approximate Value: $</label>
+        </form> -->
+        <!-- <div class="input-group">
+            <label for="otherAssets">Approximate Value of Home/Vehicle/Other High Value Property You Own: $</label>
             <input onClick="this.select();" class="input-text" type="number" id="otherAssets" value="0">
-        </div>
-        <div class="button-group">
+        </div> -->
+        <!-- <div class="button-group">
             <button class="button-primary" onclick="liquidAssetsCompute()">Calculate</button>
-        </div>
-        <div class="input-group">
-            <label for="totalLiquidAssets">Total Liquid Assets: $</label>
-            <p class="total-liquid-assets-amount" id="totalLiquidAssets"></p>
+        </div> -->
+        <div class="input-group flex">
+            <label for="totalLiquidAssets"><b>Total Liquid Assets: $</b></label>
+            <span style="font-weight:bold" class="total-liquid-assets-amount" id="totalLiquidAssets">0</span>
         </div>
     </fieldset>
+    <!-- </form>delete -->
 
     <!-- expenses -->
+    <!-- <form>delete -->
     <fieldset class="groupset">
         <legend>Expenses</legend>
         <!-- <h2>Expenses</h2> -->
-        <h4>How Much Do You Personally Pay For Each Month: </h4>
+        <p>How Much Do You Personally Pay For Each Month: </p>
         <h1 class="head-title"></h1>
         <div class="input-group">
             <label for="payHousing">Housing: $</label>
@@ -285,50 +289,61 @@
             <label for="payOther">Other: $</label>
             <input onClick="this.select();" class="input-text" type="number" id="payOther" value="0">
         </div>
-        <div class="button-group">
+        <!-- <div class="button-group">
             <button class="button-primary" onclick="expensesCompute()">Calculate</button>
-        </div>
-        <div class="input-group">
-            <label for="totalExpenses">Total Expenses: $</label>
-            <p class="tot-expenses-amount" id="totalExpenses"></p>
+        </div> -->
+        <div class="input-group flex">
+            <label for="totalExpenses"><b>Total Monthly Expenses: $</b></label>
+            <span style="font-weight:bold" class="tot-expenses-amount" id="totalExpenses">0</span>
         </div>
     </fieldset>
+    <!-- </form>delete -->
 
     <!-- calculations -->
+    <!-- <form>deleted -->
     <fieldset class="groupset">
         <!-- <h2>Calculations</h2> -->
         <legend>Calculations</legend>
-        <label for="calcs">Total Monthly Income: $</label>
-        <p id="total_income"></p>
+        <label for="calcs">Total Monthly Earnings: $</label>
+        <span id="total_income"></span>
 
         <label for="calcs">+</label>
-        <p></p>
+        <!-- <p></p> -->
 
-        <label for="calcs">Total Benefits: $</label>
-        <p id="total_benefits"></p>
-
+        <label for="calcs">Total Monthly Benefits: $</label>
+        <span id="total_benefits"></span>
 
         <label for="calcs">+</label>
-        <p></p>
+        <!-- <p></p> -->
 
         <label for="calcs">Total Liquid Assets: $</label>
-        <p id="total_assets"></p>
+        <span id="total_assets"></span>
 
         <label for="calcs">-</label>
+        <!-- <p></p> -->
+
+        <label for="calcs">Total Monthly Expenses: $</label>
+        <span id="total_expenses"></span>
+
+
+        <label for="calcs">=</label>
         <p></p>
 
-        <label for="calcs">Total Expenses: $</label>
-        <p id="total_expenses"></p>
-
-        <label for="calcs">Gross Monthly Disposable Income: $</label>
-        <p id="testTotal"></p>
+        <label for="calcs"><b>Gross Monthly Disposable Income: $</b></label>
+        <span style="font-weight:bold" id="total_income_and_expenses"></span>
     </fieldset>
 
     <!-- affordableBailAmount -->
     <fieldset class="groupset">
         <!-- <h2>Affordable Bail Amount</h2> -->
         <legend>Affordable Bail Amount</legend>
+        <label for="calcs"><b>Affordable Bail Amount: $</b></label>
+        <span style="font-weight:bold" id="affordable_bail_amount"></span>
     </fieldset>
-</body>
+    <p></p>
+    <!-- clearForm -->
+    <button id="reset">Clear Form</button>
+</form>
 
+</body>
 </html>
