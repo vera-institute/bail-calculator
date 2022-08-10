@@ -40,6 +40,7 @@ textarea {
 .input-group.flex {
   display: flex;
 }
+
 .input-group.flex>span {
   margin-left: 0px;
   margin-top: 1px;
@@ -55,7 +56,9 @@ textarea {
   padding: 1em;
   margin-top: 1em;
 }
-input{
+
+/* input */
+input {
   border: 1px solid #333;
   border-radius: 2px;
   margin: 0.5em 0;
@@ -74,8 +77,9 @@ h4 {
   /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
   font-size: 16px;
 }
-/* add Vera fonts */
-/* loadFonts */
+
+/* fonts */
+/* loadVeraFonts */
 @font-face {
   font-family: "Whyte Black";
   src: url(fonts/ABCWhyte-Black.woff) format("woff");
@@ -103,6 +107,18 @@ h4 {
 }
 
 /* applyFonts */
-body{
+body {
   font-family: "Whyte Book", sans-serif;
 }
+
+/* resetButton */
+button {
+  margin: 0 auto;
+  display: block;
+  font-family: "Whyte Book", sans-serif;
+}
+/* #reset {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+} */

@@ -236,7 +236,10 @@ $(() => {
         // affordableBailAmount = parseInt(isNaN(affordableBailAmount) ? 0 : affordableBailAmount)
         $("#affordable_bail_amount").text(affordableBailAmount)
     });
-    
+    // resetButton
+    $("#reset").click(function(){
+        document.location.reload(true);
+      });
 });
 
 // oldCode
