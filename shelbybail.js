@@ -1,5 +1,9 @@
 // incomeHourlyOrSalaryAndRadioButtonsAndInputs
 $(document).ready(function () {
+        // resetButton
+    $("#reset").click(function(){
+            location.reload(true);
+    });
     $(".radioSelect").each(function () {
         showSpecificFields(this);
     });
@@ -74,11 +78,11 @@ $(() => {
         totalIncome = Math.round(parseFloat(isNaN(totalIncome) ? 0 : totalIncome))
         // console.log(totalIncome)
 
-        $(set).find('#totalIncome').text(totalIncome);
-        $("#total_income").text(totalIncome)
+        $(set).find('#totalIncome').text(addCommas(totalIncome));
+        $("#total_income").text(addCommas(totalIncome))
         // allIncomeAndExpenses.push(totalIncome)
         totalIncomeAndExpenses = totalIncome + totalBennies + totalAssets - totalExpenses
-        $("#total_income_and_expenses").text(totalIncomeAndExpenses)
+        $("#total_income_and_expenses").text(addCommas(+totalIncomeAndExpenses))
 
         if (totalIncomeAndExpenses <= 0) {
             affordableBailAmount = totalIncomeAndExpenses * 0;
@@ -95,11 +99,11 @@ $(() => {
         } else {
             affordableBailAmount = totalIncomeAndExpenses * 0.75;
         }
-        console.log(totalIncomeAndExpenses)
+        // console.log(totalIncomeAndExpenses)
         affordableBailAmount = Math.round(parseFloat(isNaN(affordableBailAmount) ? 0 : affordableBailAmount))
         // affordableBailAmount = parseInt(isNaN(affordableBailAmount) ? 0 : affordableBailAmount)
         // console.log(totalIncome)
-        $("#affordable_bail_amount").text(affordableBailAmount)
+        $("#affordable_bail_amount").text(addCommas(affordableBailAmount))
     });
 
     // totalIncomeFromBenefits
@@ -117,12 +121,12 @@ $(() => {
         totalBennies = Math.round(parseFloat(isNaN(cash_benefits) ? 0 : cash_benefits) + parseFloat(isNaN(unemployment) ? 0 : unemployment) + parseFloat(isNaN(ssi) ? 0 : ssi) + parseFloat(isNaN(ssd) ? 0 : ssd) + parseFloat(isNaN(social) ? 0 : social) + parseFloat(isNaN(pension) ? 0 : pension) + parseFloat(isNaN(other) ? 0 : other))
         // totalBennies = parseInt(isNaN(cash_benefits) ? 0 : cash_benefits) + parseInt(isNaN(unemployment) ? 0 : unemployment) + parseInt(isNaN(ssi) ? 0 : ssi) + parseInt(isNaN(ssd) ? 0 : ssd) + parseInt(isNaN(social) ? 0 : social) + parseInt(isNaN(pension) ? 0 : pension) + parseInt(isNaN(other) ? 0 : other)
 
-        $(set).find('#totalIncomeFromBenefits').text(totalBennies);
+        $(set).find('#totalIncomeFromBenefits').text(addCommas(totalBennies));
 
-        $("#total_benefits").text(totalBennies)
+        $("#total_benefits").text(addCommas(totalBennies))
         // allIncomeAndExpenses.push(totalBennies)
         totalIncomeAndExpenses = totalIncome + totalBennies + totalAssets - totalExpenses
-        $("#total_income_and_expenses").text(totalIncomeAndExpenses)
+        $("#total_income_and_expenses").text(addCommas(+totalIncomeAndExpenses))
 
         if (totalIncomeAndExpenses <= 0) {
             affordableBailAmount = totalIncomeAndExpenses * 0;
@@ -139,11 +143,11 @@ $(() => {
         } else {
             affordableBailAmount = totalIncomeAndExpenses * 0.75;
         }
-        console.log(totalIncomeAndExpenses)
+        // console.log(totalIncomeAndExpenses)
         // console.log(totalBennies)
         affordableBailAmount = Math.round(parseFloat(isNaN(affordableBailAmount) ? 0 : affordableBailAmount))
         // affordableBailAmount = parseInt(isNaN(affordableBailAmount) ? 0 : affordableBailAmount)
-        $("#affordable_bail_amount").text(affordableBailAmount)
+        $("#affordable_bail_amount").text(addCommas(+affordableBailAmount))
     });
 
     // totalLiquidAssets
@@ -160,12 +164,12 @@ $(() => {
         // + parseFloat(isNaN(other_assets) ? 0 : other_assets)
         // totalAssets = parseInt(isNaN(checking_account) ? 0 : checking_account) + parseInt(isNaN(savings_account) ? 0 : savings_account) + parseInt(isNaN(cash_available_now) ? 0 : cash_available_now) + parseInt(isNaN(other_assets) ? 0 : other_assets)
 
-        $(set).find('#totalLiquidAssets').text(totalAssets);
+        $(set).find('#totalLiquidAssets').text(addCommas(totalAssets));
 
-        $("#total_assets").text(totalAssets)
+        $("#total_assets").text(addCommas(totalAssets))
         // allIncomeAndExpenses.push(totalAssets)
         totalIncomeAndExpenses = totalIncome + totalBennies + totalAssets - totalExpenses
-        $("#total_income_and_expenses").text(totalIncomeAndExpenses)
+        $("#total_income_and_expenses").text(addCommas(totalIncomeAndExpenses))
 
         if (totalIncomeAndExpenses <= 0) {
             affordableBailAmount = totalIncomeAndExpenses * 0;
@@ -182,11 +186,11 @@ $(() => {
         } else {
             affordableBailAmount = totalIncomeAndExpenses * 0.75;
         }
-        console.log(totalIncomeAndExpenses)
+        // console.log(totalIncomeAndExpenses)
         // console.log(totalAssets)
         affordableBailAmount = Math.round(parseFloat(isNaN(affordableBailAmount) ? 0 : affordableBailAmount))
         // affordableBailAmount = parseInt(isNaN(affordableBailAmount) ? 0 : affordableBailAmount)
-        $("#affordable_bail_amount").text(affordableBailAmount)
+        $("#affordable_bail_amount").text(addCommas(+affordableBailAmount))
     });
 
     // totalExpenses
@@ -207,13 +211,13 @@ $(() => {
         totalExpenses = Math.round(parseFloat(isNaN(housing) ? 0 : housing) + parseFloat(isNaN(electricity_gas) ? 0 : electricity_gas) + parseFloat(isNaN(food_grocery) ? 0 : food_grocery) + parseFloat(isNaN(transportation) ? 0 : transportation) + parseFloat(isNaN(phone) ? 0 : phone) + parseFloat(isNaN(student_loans) ? 0 : student_loans) + parseFloat(isNaN(child_support) ? 0 : child_support) + parseFloat(isNaN(medical) ? 0 : medical) + parseFloat(isNaN(tv_internet) ? 0 : tv_internet) + parseFloat(isNaN(other) ? 0 : other))
         // totalExpenses = parseInt(isNaN(housing) ? 0 : housing) + parseInt(isNaN(electricity_gas) ? 0 : electricity_gas) + parseInt(isNaN(food_grocery) ? 0 : food_grocery) + parseInt(isNaN(transportation) ? 0 : transportation) + parseInt(isNaN(phone) ? 0 : phone) + parseInt(isNaN(student_loans) ? 0 : student_loans) + parseInt(isNaN(child_support) ? 0 : child_support) + parseInt(isNaN(medical) ? 0 : medical) + parseInt(isNaN(tv_internet) ? 0 : tv_internet) + parseInt(isNaN(other) ? 0 : other)
 
-        $(set).find('#totalExpenses').text(totalExpenses);
+        $(set).find('#totalExpenses').text(addCommas(totalExpenses));
 
-        $("#total_expenses").text(totalExpenses)
+        $("#total_expenses").text(addCommas(totalExpenses))
         // allIncomeAndExpenses.push(totalExpenses)
         totalIncomeAndExpenses = totalIncome + totalBennies + totalAssets - totalExpenses
         // console.log(totalIncomeAndExpenses)
-        $("#total_income_and_expenses").text(totalIncomeAndExpenses)
+        $("#total_income_and_expenses").text(addCommas(totalIncomeAndExpenses))
 
         if (totalIncomeAndExpenses <= 0) {
             affordableBailAmount = totalIncomeAndExpenses * 0;
@@ -230,17 +234,18 @@ $(() => {
         } else {
             affordableBailAmount = totalIncomeAndExpenses * 0.75;
         }
-        console.log(totalIncomeAndExpenses)
+        // console.log(totalIncomeAndExpenses)
         // console.log(totalExpenses)
         affordableBailAmount = Math.round(parseFloat(isNaN(affordableBailAmount) ? 0 : affordableBailAmount))
         // affordableBailAmount = parseInt(isNaN(affordableBailAmount) ? 0 : affordableBailAmount)
-        $("#affordable_bail_amount").text(affordableBailAmount)
+        $("#affordable_bail_amount").text(addCommas(+affordableBailAmount))
     });
-    // resetButton
-    $("#reset").click(function(){
-        document.location.reload(true);
-      });
 });
+function addCommas(x) {
+    var parts = x.toString().split('.')
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    return parts.join('.')
+  };
 
 // oldCode
 // var totalIncome
