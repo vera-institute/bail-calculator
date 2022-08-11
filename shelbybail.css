@@ -1,8 +1,10 @@
 /* font */
 html {
-  /* font-family: Calibri, sans-serif; */
-  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
   font-size: 16px;
+}
+
+legend {
+  font-size: 20px;
 }
 
 /* removeUpDownArrowsFromNumberInput
@@ -48,8 +50,6 @@ textarea {
 
 /* groupset */
 .groupset {
-  /* width: 600px; */
-  /* max-width: 100%; */
   width: auto;
   max-width: 600px;
   margin: 0 auto;
@@ -73,10 +73,9 @@ h1 {
 }
 
 /* h4 */
-h4 {
-  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+/* h4 {
   font-size: 16px;
-}
+} */
 
 /* fonts */
 /* loadVeraFonts */
@@ -111,14 +110,14 @@ body {
   font-family: "Whyte Book", sans-serif;
 }
 
+/* bold */
+.bold {
+  font-family: "Whyte Bold";
+ }
+
 /* resetButton */
 button {
   margin: 0 auto;
   display: block;
   font-family: "Whyte Book", sans-serif;
 }
-/* #reset {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-} */
