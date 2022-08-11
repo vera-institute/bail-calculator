@@ -45,7 +45,6 @@ function hourlySalaryCheck() {
     }
 }
 
-// var totalIncome, totalIncomeFromBenefits, totalLiquidAssets, totalExpenses;
 let total = document.getElementById('testTotal')
 $(() => {
     let totalIncome = 0, totalBennies = 0, totalAssets = 0, totalExpenses = 0, totalIncomeAndExpenses = 0;
@@ -62,21 +61,16 @@ $(() => {
         var annual_salary = $(set).find('#annualSalary').val() == '' ? 0 : $(set).find('#annualSalary').val();
         // var monthly_salary = $(set).find('#monthlySalary').val() == '' ? 0 : $(set).find('#monthlySalary').val();
 
-        // totalIncome = parseInt(isNaN(hourly_wage) ? 0 : hourly_wage) + parseInt(isNaN(hours_per_week) ? 0 : hours_per_week) + parseInt(isNaN(annual_salary) ? 0 : annual_salary) + parseInt(isNaN(monthly_salary) ? 0 : monthly_salary)
-
         // monthlyIncomeCalculation
         if (annual_salary > 0 && salary1.type === 'number') {
             totalIncome = (annual_salary / 12)
-            // console.log('ONE')
         } else if (hourly_wage > 0 && hourly1.type === 'number') {
             totalIncome = ((hourly_wage * hours_per_week) * 4.33)
-            // console.log('two')
         } else {
             totalIncome = "0";
         }
         // totalIncome = parseInt(isNaN(totalIncome) ? 0 : totalIncome)
         totalIncome = Math.round(parseFloat(isNaN(totalIncome) ? 0 : totalIncome))
-        // console.log(totalIncome)
 
         $(set).find('#totalIncome').text(addCommas(totalIncome));
         $("#total_income").text(addCommas(totalIncome))
@@ -99,10 +93,8 @@ $(() => {
         } else {
             affordableBailAmount = totalIncomeAndExpenses * 0.75;
         }
-        // console.log(totalIncomeAndExpenses)
         affordableBailAmount = Math.round(parseFloat(isNaN(affordableBailAmount) ? 0 : affordableBailAmount))
         // affordableBailAmount = parseInt(isNaN(affordableBailAmount) ? 0 : affordableBailAmount)
-        // console.log(totalIncome)
         $("#affordable_bail_amount").text(addCommas(+affordableBailAmount))
     });
 
@@ -143,8 +135,7 @@ $(() => {
         } else {
             affordableBailAmount = totalIncomeAndExpenses * 0.75;
         }
-        // console.log(totalIncomeAndExpenses)
-        // console.log(totalBennies)
+
         affordableBailAmount = Math.round(parseFloat(isNaN(affordableBailAmount) ? 0 : affordableBailAmount))
         // affordableBailAmount = parseInt(isNaN(affordableBailAmount) ? 0 : affordableBailAmount)
         $("#affordable_bail_amount").text(addCommas(+affordableBailAmount))
@@ -186,8 +177,7 @@ $(() => {
         } else {
             affordableBailAmount = totalIncomeAndExpenses * 0.75;
         }
-        // console.log(totalIncomeAndExpenses)
-        // console.log(totalAssets)
+
         affordableBailAmount = Math.round(parseFloat(isNaN(affordableBailAmount) ? 0 : affordableBailAmount))
         // affordableBailAmount = parseInt(isNaN(affordableBailAmount) ? 0 : affordableBailAmount)
         $("#affordable_bail_amount").text(addCommas(+affordableBailAmount))
@@ -216,7 +206,7 @@ $(() => {
         $("#total_expenses").text(addCommas(totalExpenses))
         // allIncomeAndExpenses.push(totalExpenses)
         totalIncomeAndExpenses = totalIncome + totalBennies + totalAssets - totalExpenses
-        // console.log(totalIncomeAndExpenses)
+
         $("#total_income_and_expenses").text(addCommas(totalIncomeAndExpenses))
 
         if (totalIncomeAndExpenses <= 0) {
@@ -234,8 +224,7 @@ $(() => {
         } else {
             affordableBailAmount = totalIncomeAndExpenses * 0.75;
         }
-        // console.log(totalIncomeAndExpenses)
-        // console.log(totalExpenses)
+
         affordableBailAmount = Math.round(parseFloat(isNaN(affordableBailAmount) ? 0 : affordableBailAmount))
         // affordableBailAmount = parseInt(isNaN(affordableBailAmount) ? 0 : affordableBailAmount)
         $("#affordable_bail_amount").text(addCommas(+affordableBailAmount))
@@ -246,125 +235,3 @@ function addCommas(x) {
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',')
     return parts.join('.')
   };
-
-// oldCode
-// var totalIncome
-
-// function incomeCompute() {
-//     var hourlyWageValue = parseInt(document.getElementById("hourlyWage").value);
-//     var hoursPerWeekValue = parseInt(document.getElementById("hoursPerWeek").value);
-//     var annualSalaryValue = parseInt(document.getElementById("annualSalary").value);
-//     var monthlySalaryValue = parseInt(document.getElementById("monthlySalary").value);
-
-//     // var totalIncome = ((hourlyWageValue * hoursPerWeekValue)*4);
-
-//     if (annualSalaryValue > 0) {
-//         totalIncome = (annualSalaryValue / 12)
-//     } else if (hourlyWageValue > 0) {
-//         totalIncome = ((hourlyWageValue * hoursPerWeekValue) * 4)
-//     } else {
-//         totalIncome = "Please Enter Values";
-//     }
-//     document.getElementById("totalIncome").innerHTML = totalIncome
-//     document.getElementById("total_income").innerText = totalIncome
-//     // console.log(totalIncome)
-// }
-
-// switch(totalIncomeAndExpenses) {
-//     case (totalIncomeAndExpenses <= 0):
-//         tester = totalIncomeAndExpenses*0;
-//       break;
-//     case (1 <= totalIncomeAndExpenses <= 100):
-//         tester = totalIncomeAndExpenses*0.50;
-//       break;
-//     case (101 <= totalIncomeAndExpenses <= 200):
-//         tester = totalIncomeAndExpenses*0.55;
-//       break;
-//     case (201 <= totalIncomeAndExpenses <= 300):
-//         tester = totalIncomeAndExpenses*0.60;
-//       break;
-//     case (301 <= totalIncomeAndExpenses <= 400):
-//         tester = totalIncomeAndExpenses*0.65;
-//       break;
-//     case (401 <= totalIncomeAndExpenses <= 500):
-//         tester = totalIncomeAndExpenses*0.70;
-//       break;
-//     case (totalIncomeAndExpenses >= 501):
-//         tester = totalIncomeAndExpenses*0.75;
-//       break;
-//     // default:
-//       // code block
-//   }
-//   console.log(tester)
-
-// function incomeFromBenefitsCompute() {
-//     var cashBenefitsValue = parseInt(document.getElementById("cashBenefits").value);
-//     var unemploymentValue = parseInt(document.getElementById("unemployment").value);
-//     var SSIValue = parseInt(document.getElementById("SSI").value);
-//     var SSDValue = parseInt(document.getElementById("SSD").value);
-//     var socialSecurityValue = parseInt(document.getElementById("socialSecurity").value);
-//     var pensionRetirementValue = parseInt(document.getElementById("pensionRetirement").value);
-//     var anyOtherIncomeValue = parseInt(document.getElementById("anyOtherIncome").value);
-
-//     var totalIncomeFromBenefits = cashBenefitsValue + unemploymentValue + SSIValue + SSDValue + socialSecurityValue + pensionRetirementValue + anyOtherIncomeValue;
-
-//     if (totalIncomeFromBenefits) {
-//         document.getElementById("totalIncomeFromBenefits").innerHTML = totalIncomeFromBenefits;
-//     }
-//     else {
-//         document.getElementById("totalIncomeFromBenefits").innerHTML = "0";
-//         // document.getElementById("totalIncomeFromBenefits").innerHTML = "Please Enter Values";
-//     }
-//     document.getElementById("total_benefits").innerText = totalIncomeFromBenefits
-//     // console.log(totalIncomeFromBenefits)
-// }
-// liquidAssets
-// var totalLiquidAssets
-
-// function liquidAssetsCompute() {
-//     var checkingAccountValue = parseInt(document.getElementById("checkingAccount").value);
-//     var savingsAccountValue = parseInt(document.getElementById("savingsAccount").value);
-//     var cashAvailableNowValue = parseInt(document.getElementById("cashAvailableNow").value);
-//     var otherAssetsValue = parseInt(document.getElementById("otherAssets").value);
-
-//     var totalLiquidAssets = checkingAccountValue + savingsAccountValue + cashAvailableNowValue + otherAssetsValue;
-
-//     if (totalLiquidAssets) {
-//         document.getElementById("totalLiquidAssets").innerHTML = totalLiquidAssets;
-//     }
-//     else {
-//         document.getElementById("totalLiquidAssets").innerHTML = "0";
-//         // document.getElementById("totalLiquidAssets").innerHTML = "Please Enter Values";
-//     }
-//     document.getElementById("total_assets").innerText = totalLiquidAssets
-//     // console.log (totalLiquidAssets)
-//     return (totalLiquidAssets)
-// }
-
-// // Expenses
-// let totalExpenses, housingValue, electricityGasValue, foodGroceryValue, transportationValue, phoneValue, studentLoansValue, childSupportValue, medicalValue, tvInternetValue, otherValue
-
-// function expensesCompute() {
-//     housingValue = parseInt(document.getElementById("payHousing").value);
-//     electricityGasValue = parseInt(document.getElementById("payElectricityGas").value);
-//     foodGroceryValue = parseInt(document.getElementById("payFoodGrocery").value);
-//     transportationValue = parseInt(document.getElementById("payTransportation").value);
-//     phoneValue = parseInt(document.getElementById("payPhone").value);
-//     studentLoansValue = parseInt(document.getElementById("payStudentLoans").value);
-//     childSupportValue = parseInt(document.getElementById("payChildSupport").value);
-//     medicalValue = parseInt(document.getElementById("payMedical").value);
-//     tvInternetValue = parseInt(document.getElementById("payTvInternet").value);
-//     otherValue = parseInt(document.getElementById("payOther").value);
-
-//     totalExpenses = housingValue + electricityGasValue + foodGroceryValue + transportationValue + phoneValue + studentLoansValue + childSupportValue + medicalValue + tvInternetValue + otherValue;
-
-//     if (totalExpenses) {
-//         document.getElementById("totalExpenses").innerHTML = totalExpenses;
-//     }
-//     else {
-//         document.getElementById("totalExpenses").innerHTML = "0";
-//         // document.getElementById("totalExpenses").innerHTML = "Please Enter Values";
-//     }
-//     document.getElementById("total_expenses").innerText = totalExpenses
-//     console.log(totalExpenses)
-// }
