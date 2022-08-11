@@ -3,6 +3,10 @@ html {
   font-size: 16px;
 }
 
+legend {
+  font-size: 20px;
+}
+
 /* removeUpDownArrowsFromNumberInput
 chromeSafariEdgeOpera */
 input::-webkit-outer-spin-button,
