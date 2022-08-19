@@ -184,13 +184,15 @@ $(() => {
     });
 
     // totalExpenses
-    $("#payHousing,#payElectricityGas,#payFoodGrocery,#payTransportation,#payPhone,#payStudentLoans,#payChildSupport,#payMedical,#payTvInternet,#payOther").on('keyup', function () {
+    $("#payHousing,#payElectricityGas,#payFoodGrocery,#payPublicTransit, #paycarPaymentInsurance, #payGas, #payPhone,#payStudentLoans,#payChildSupport,#payMedical,#payTvInternet,#payOther").on('keyup', function () {
         var set = $(this).closest('fieldset');
 
         var housing = $(set).find('#payHousing').val() == '' ? 0 : $(set).find('#payHousing').val();
         var electricity_gas = $(set).find('#payElectricityGas').val() == '' ? 0 : $(set).find('#payElectricityGas').val();
         var food_grocery = $(set).find('#payFoodGrocery').val() == '' ? 0 : $(set).find('#payFoodGrocery').val();
-        var transportation = $(set).find('#payTransportation').val() == '' ? 0 : $(set).find('#payTransportation').val();
+        var public_transit = $(set).find('#payPublicTransit').val() == '' ? 0 : $(set).find('#payPublicTransit').val();
+        var car_payment_insurance = $(set).find('#paycarPaymentInsurance').val() == '' ? 0 : $(set).find('#paycarPaymentInsurance').val();
+        var gas = $(set).find('#payGas').val() == '' ? 0 : $(set).find('#payGas').val();
         var phone = $(set).find('#payPhone').val() == '' ? 0 : $(set).find('#payPhone').val();
         var student_loans = $(set).find('#payStudentLoans').val() == '' ? 0 : $(set).find('#payStudentLoans').val();
         var child_support = $(set).find('#payChildSupport').val() == '' ? 0 : $(set).find('#payChildSupport').val();
@@ -198,7 +200,7 @@ $(() => {
         var tv_internet = $(set).find('#payTvInternet').val() == '' ? 0 : $(set).find('#payTvInternet').val();
         var other = $(set).find('#payOther').val() == '' ? 0 : $(set).find('#payOther').val();
 
-        totalExpenses = Math.round(parseFloat(isNaN(housing) ? 0 : housing) + parseFloat(isNaN(electricity_gas) ? 0 : electricity_gas) + parseFloat(isNaN(food_grocery) ? 0 : food_grocery) + parseFloat(isNaN(transportation) ? 0 : transportation) + parseFloat(isNaN(phone) ? 0 : phone) + parseFloat(isNaN(student_loans) ? 0 : student_loans) + parseFloat(isNaN(child_support) ? 0 : child_support) + parseFloat(isNaN(medical) ? 0 : medical) + parseFloat(isNaN(tv_internet) ? 0 : tv_internet) + parseFloat(isNaN(other) ? 0 : other))
+        totalExpenses = Math.round(parseFloat(isNaN(housing) ? 0 : housing) + parseFloat(isNaN(electricity_gas) ? 0 : electricity_gas) + parseFloat(isNaN(food_grocery) ? 0 : food_grocery) + parseFloat(isNaN(public_transit) ? 0 : public_transit) + parseFloat(isNaN(car_payment_insurance) ? 0 : car_payment_insurance)+ parseFloat(isNaN(gas) ? 0 : gas) + parseFloat(isNaN(phone) ? 0 : phone) + parseFloat(isNaN(student_loans) ? 0 : student_loans) + parseFloat(isNaN(child_support) ? 0 : child_support) + parseFloat(isNaN(medical) ? 0 : medical) + parseFloat(isNaN(tv_internet) ? 0 : tv_internet) + parseFloat(isNaN(other) ? 0 : other))
         // totalExpenses = parseInt(isNaN(housing) ? 0 : housing) + parseInt(isNaN(electricity_gas) ? 0 : electricity_gas) + parseInt(isNaN(food_grocery) ? 0 : food_grocery) + parseInt(isNaN(transportation) ? 0 : transportation) + parseInt(isNaN(phone) ? 0 : phone) + parseInt(isNaN(student_loans) ? 0 : student_loans) + parseInt(isNaN(child_support) ? 0 : child_support) + parseInt(isNaN(medical) ? 0 : medical) + parseInt(isNaN(tv_internet) ? 0 : tv_internet) + parseInt(isNaN(other) ? 0 : other)
 
         $(set).find('#totalExpenses').text(addCommas(totalExpenses));
