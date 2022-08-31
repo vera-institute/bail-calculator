@@ -120,7 +120,8 @@ body {
 }
 #logo {
   margin: 15px auto;
-  height: 30px;
+  height: 40px;
+  width: 216px;
 }
 
 /* resetButton */
