@@ -1,4 +1,4 @@
-// incomeHourlyOrSalaryAndRadioButtonsAndInputs
+// salaryBiweeklyOrMonthlyAndRadioButtonsAndInputs
 $(document).ready(function () {
         // resetButton
     $("#reset").click(function(){
@@ -25,23 +25,23 @@ function showSpecificFields(obj) {
 }
 
 // incomeInputNumberHidden
-let hourly1;
-let hourly2;
-let salary1;
+let biweekly1;
+// let hourly2;
+let monthly1;
 
-function hourlySalaryCheck() {
+function biweeklyMonthlySalaryCheck() {
     // salary2 = document.getElementById('monthlySalary')
-    hourly1 = document.getElementById('hourlyWage')
-    hourly2 = document.getElementById('hoursPerWeek')
-    salary1 = document.getElementById('annualSalary')
-    if (document.getElementById('hourlyCheck').checked) {
-        hourly1.type = hourly2.type = 'number';
+    biweekly1 = document.getElementById('biweeklySalary')
+    // hourly2 = document.getElementById('hoursPerWeek')
+    monthly1 = document.getElementById('monthlySalary')
+    if (document.getElementById('biweeklyCheck').checked) {
+        biweekly1.type  = 'number';
         // salary1.type = salary2.type = 'hidden';
-        salary1.type = 'hidden';
+        monthly1.type = 'hidden';
     } else {
         // salary1.type = salary2.type = 'number';
-        salary1.type = 'number';
-        hourly1.type = hourly2.type = 'hidden';
+        monthly1.type = 'number';
+        biweekly1.type =  'hidden';
     }
 }
 
@@ -53,19 +53,19 @@ $(() => {
 
     // totalIncome
     // ,#monthlySalary
-    $("#hourlyWage,#hoursPerWeek,#annualSalary").on('keyup', function () {
+    $("#biweeklySalary,#monthlySalary").on('keyup', function () {
         var set = $(this).closest('fieldset');
 
-        var hourly_wage = $(set).find('#hourlyWage').val() == '' ? 0 : $(set).find('#hourlyWage').val();
-        var hours_per_week = $(set).find('#hoursPerWeek').val() == '' ? 0 : $(set).find('#hoursPerWeek').val();
-        var annual_salary = $(set).find('#annualSalary').val() == '' ? 0 : $(set).find('#annualSalary').val();
+        var biweekly_salary = $(set).find('#biweeklySalary').val() == '' ? 0 : $(set).find('#biweeklySalary').val();
+        // var hours_per_week = $(set).find('#hoursPerWeek').val() == '' ? 0 : $(set).find('#hoursPerWeek').val();
+        var monthly_salary = $(set).find('#monthlySalary').val() == '' ? 0 : $(set).find('#monthlySalary').val();
         // var monthly_salary = $(set).find('#monthlySalary').val() == '' ? 0 : $(set).find('#monthlySalary').val();
 
         // monthlyIncomeCalculation
-        if (annual_salary > 0 && salary1.type === 'number') {
-            totalIncome = (annual_salary / 12)
-        } else if (hourly_wage > 0 && hourly1.type === 'number') {
-            totalIncome = ((hourly_wage * hours_per_week) * 4.33)
+        if (monthly_salary > 0 && monthly1.type === 'number') {
+            totalIncome = (monthly_salary)
+        } else if (biweekly_salary > 0 && biweekly1.type === 'number') {
+            totalIncome = ((biweekly_salary) * 2.165)
         } else {
             totalIncome = "0";
         }
