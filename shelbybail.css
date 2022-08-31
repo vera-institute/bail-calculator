@@ -114,14 +114,13 @@ body {
 .bold {
   font-family: "Whyte Bold";
  }
-
+#outerimg{
+  margin:0 auto;
+  width: 216px;
+}
 #logo {
-  display: inline-block;
-  margin: 15px; /* margin: 20px was off */
-  /* float:left; */
-  height: 60px;
-  width: auto; /* correct proportions to specified height */
-  border-radius: 50%; /* makes it a circle */
+  margin: 15px auto;
+  height: 30px;
 }
 
 /* resetButton */
