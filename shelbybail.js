@@ -43,18 +43,27 @@ function showSpecificFields(obj) {
 //     });
 // });
 // $(document).ready(function () {
-    // $('#monthlySalary').click(function () {
-    //     $(this).val(null);
-    // });
-    $(document).ready(function () {
+// $('#monthlySalary').click(function () {
+//     $(this).val(null);
+// });
+$(document).ready(function () {
     // clear value of input when changing radio input
     $('input[type=radio][name=biweeklymonthly]').change(function () {
         $('#monthlySalary').val(null);
         $('#biweeklySalary').val(null);
         $("#totalIncome").text('0');
         $("#total_income").text('0');
+
+        let ben = $('#total_benefits').text()
+        let ass = $('#total_assets').text()
+        let exp = $('#total_expenses').text()
+
+        let newTotalDispo = (+ben) + (+ass) - (+exp)
+        $("#total_income_and_expenses").text(addCommas(+newTotalDispo))
+
+        // add new calculation for affordable bail here.
     });
- });
+});
 
 
 
@@ -89,6 +98,7 @@ $(() => {
     // totalIncome
     // ,#monthlySalary
     $("#biweeklySalary,#monthlySalary").on('keyup', function () {
+
         var set = $(this).closest('fieldset');
 
         var biweekly_salary = $(set).find('#biweeklySalary').val() == '' ? 0 : $(set).find('#biweeklySalary').val();
@@ -112,14 +122,16 @@ $(() => {
         } else {
             totalIncome = "0";
         }
-        console.log(totalIncome)
+        console.log('totalIncome line 115', totalIncome)
 
         // totalIncome = parseInt(isNaN(totalIncome) ? 0 : totalIncome)
         totalIncome = Math.round(parseFloat(isNaN(totalIncome) ? 0 : totalIncome))
+        console.log('total income line 119', totalIncome)
 
         $(set).find('#totalIncome').text(addCommas(totalIncome));
         $("#total_income").text(addCommas(totalIncome))
         // allIncomeAndExpenses.push(totalIncome)
+        console.log('total income line 125', totalIncome)
         totalIncomeAndExpenses = totalIncome + totalBennies + totalAssets - totalExpenses
         $("#total_income_and_expenses").text(addCommas(+totalIncomeAndExpenses))
 
