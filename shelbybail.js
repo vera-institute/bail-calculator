@@ -24,6 +24,37 @@ function showSpecificFields(obj) {
     }
 }
 
+// $(document).ready(function() {
+//     $('#biweeklySalary').click(function() {
+//         // $("#biweeklyCheck").trigger("reset");
+//         // _("biweeklyCheck").reset();
+//         $(this).val('0');
+//     })
+// });
+// $(document).ready(function() {
+//     $('#monthlySalary').click(function() {
+//         $(this).val('0');
+//     })
+// });
+
+$(document).ready(function() {
+    $('#biweeklySalary').click(function() {
+        // $("#biweeklyCheck").trigger("reset");
+        // _("biweeklyCheck").reset();
+        $(this).val(null);
+    })
+});
+$(document).ready(function() {
+    $('#monthlySalary').click(function() {
+        $(this).val(null);
+    })
+
+    // $('#monthlyCheck').click()=>{
+    //     $('#monthlySalary').val(null);
+    // }
+});
+
+
 // incomeInputNumberHidden
 let biweekly1;
 // let hourly2;
@@ -61,14 +92,24 @@ $(() => {
         var monthly_salary = $(set).find('#monthlySalary').val() == '' ? 0 : $(set).find('#monthlySalary').val();
         // var monthly_salary = $(set).find('#monthlySalary').val() == '' ? 0 : $(set).find('#monthlySalary').val();
 
+        // // monthlyIncomeCalculation
+        // if (monthly_salary > 0 && monthly1.type === 'number') {
+        //     totalIncome = (monthly_salary)
+        // } else if (biweekly_salary > 0 && biweekly1.type === 'number') {
+        //     totalIncome = ((biweekly_salary) * 2.165)
+        // } else {
+        //     totalIncome = "0";
+        // }
         // monthlyIncomeCalculation
-        if (monthly_salary > 0 && monthly1.type === 'number') {
-            totalIncome = (monthly_salary)
-        } else if (biweekly_salary > 0 && biweekly1.type === 'number') {
+        if (biweekly_salary > 0 && biweekly1.type === 'number') {
             totalIncome = ((biweekly_salary) * 2.165)
+        } else if (monthly_salary > 0 && monthly1.type === 'number') {
+            totalIncome = (monthly_salary)
         } else {
             totalIncome = "0";
         }
+        console.log(totalIncome)
+
         // totalIncome = parseInt(isNaN(totalIncome) ? 0 : totalIncome)
         totalIncome = Math.round(parseFloat(isNaN(totalIncome) ? 0 : totalIncome))
 
