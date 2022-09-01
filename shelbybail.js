@@ -1,8 +1,8 @@
 // salaryBiweeklyOrMonthlyAndRadioButtonsAndInputs
 $(document).ready(function () {
-        // resetButton
-    $("#reset").click(function(){
-            location.reload(true);
+    // resetButton
+    $("#reset").click(function () {
+        location.reload(true);
     });
     $(".radioSelect").each(function () {
         showSpecificFields(this);
@@ -37,21 +37,25 @@ function showSpecificFields(obj) {
 //     })
 // });
 
-$(document).ready(function() {
-    $('#biweeklySalary').click(function() {
+$(document).ready(function () {
+    $('#biweeklySalary').click(function () {
         // $("#biweeklyCheck").trigger("reset");
         // _("biweeklyCheck").reset();
         $(this).val(null);
     })
 });
-$(document).ready(function() {
-    $('#monthlySalary').click(function() {
+$(document).ready(function () {
+    $('#monthlySalary').click(function () {
         $(this).val(null);
     })
 
-    // $('#monthlyCheck').click()=>{
-    //     $('#monthlySalary').val(null);
-    // }
+    // clear value of input when changing radio input
+
+    $('input[type=radio][name=biweeklymonthly]').change(function () {
+        $('#monthlySalary').val(null);
+        $('#biweeklySalary').val(null);
+    })
+
 });
 
 
@@ -66,13 +70,14 @@ function biweeklyMonthlySalaryCheck() {
     // hourly2 = document.getElementById('hoursPerWeek')
     monthly1 = document.getElementById('monthlySalary')
     if (document.getElementById('biweeklyCheck').checked) {
-        biweekly1.type  = 'number';
+        biweekly1.type = 'number';
         // salary1.type = salary2.type = 'hidden';
         monthly1.type = 'hidden';
+
     } else {
         // salary1.type = salary2.type = 'number';
         monthly1.type = 'number';
-        biweekly1.type =  'hidden';
+        biweekly1.type = 'hidden';
     }
 }
 
@@ -241,7 +246,7 @@ $(() => {
         var tv_internet = $(set).find('#payTvInternet').val() == '' ? 0 : $(set).find('#payTvInternet').val();
         var other = $(set).find('#payOther').val() == '' ? 0 : $(set).find('#payOther').val();
 
-        totalExpenses = Math.round(parseFloat(isNaN(housing) ? 0 : housing) + parseFloat(isNaN(electricity_gas) ? 0 : electricity_gas) + parseFloat(isNaN(food_grocery) ? 0 : food_grocery) + parseFloat(isNaN(public_transit) ? 0 : public_transit) + parseFloat(isNaN(car_payment_insurance) ? 0 : car_payment_insurance)+ parseFloat(isNaN(gas) ? 0 : gas) + parseFloat(isNaN(phone) ? 0 : phone) + parseFloat(isNaN(student_loans) ? 0 : student_loans) + parseFloat(isNaN(child_support) ? 0 : child_support) + parseFloat(isNaN(medical) ? 0 : medical) + parseFloat(isNaN(tv_internet) ? 0 : tv_internet) + parseFloat(isNaN(other) ? 0 : other))
+        totalExpenses = Math.round(parseFloat(isNaN(housing) ? 0 : housing) + parseFloat(isNaN(electricity_gas) ? 0 : electricity_gas) + parseFloat(isNaN(food_grocery) ? 0 : food_grocery) + parseFloat(isNaN(public_transit) ? 0 : public_transit) + parseFloat(isNaN(car_payment_insurance) ? 0 : car_payment_insurance) + parseFloat(isNaN(gas) ? 0 : gas) + parseFloat(isNaN(phone) ? 0 : phone) + parseFloat(isNaN(student_loans) ? 0 : student_loans) + parseFloat(isNaN(child_support) ? 0 : child_support) + parseFloat(isNaN(medical) ? 0 : medical) + parseFloat(isNaN(tv_internet) ? 0 : tv_internet) + parseFloat(isNaN(other) ? 0 : other))
         // totalExpenses = parseInt(isNaN(housing) ? 0 : housing) + parseInt(isNaN(electricity_gas) ? 0 : electricity_gas) + parseInt(isNaN(food_grocery) ? 0 : food_grocery) + parseInt(isNaN(transportation) ? 0 : transportation) + parseInt(isNaN(phone) ? 0 : phone) + parseInt(isNaN(student_loans) ? 0 : student_loans) + parseInt(isNaN(child_support) ? 0 : child_support) + parseInt(isNaN(medical) ? 0 : medical) + parseInt(isNaN(tv_internet) ? 0 : tv_internet) + parseInt(isNaN(other) ? 0 : other)
 
         $(set).find('#totalExpenses').text(addCommas(totalExpenses));
@@ -277,4 +282,4 @@ function addCommas(x) {
     var parts = x.toString().split('.')
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',')
     return parts.join('.')
-  };
+};
