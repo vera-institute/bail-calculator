@@ -37,26 +37,25 @@ function showSpecificFields(obj) {
 //     })
 // });
 
-$(document).ready(function () {
-    $('#biweeklySalary').click(function () {
-        // $("#biweeklyCheck").trigger("reset");
-        // _("biweeklyCheck").reset();
-        $(this).val(null);
-    })
-});
-$(document).ready(function () {
-    $('#monthlySalary').click(function () {
-        $(this).val(null);
-    })
-
+// $(document).ready(function () {
+//     $('#biweeklySalary').click(function () {
+//         $(this).val(null);
+//     });
+// });
+// $(document).ready(function () {
+    // $('#monthlySalary').click(function () {
+    //     $(this).val(null);
+    // });
+    $(document).ready(function () {
     // clear value of input when changing radio input
-
     $('input[type=radio][name=biweeklymonthly]').change(function () {
         $('#monthlySalary').val(null);
         $('#biweeklySalary').val(null);
-    })
+        $("#totalIncome").text('0');
+        $("#total_income").text('0');
+    });
+ });
 
-});
 
 
 // incomeInputNumberHidden
@@ -81,7 +80,7 @@ function biweeklyMonthlySalaryCheck() {
     }
 }
 
-let total = document.getElementById('testTotal')
+// let total = document.getElementById('testTotal')
 $(() => {
     let totalIncome = 0, totalBennies = 0, totalAssets = 0, totalExpenses = 0, totalIncomeAndExpenses = 0;
     let affordableBailAmount;
@@ -107,7 +106,7 @@ $(() => {
         // }
         // monthlyIncomeCalculation
         if (biweekly_salary > 0 && biweekly1.type === 'number') {
-            totalIncome = ((biweekly_salary) * 2.165)
+            totalIncome = ((biweekly_salary) * 2)
         } else if (monthly_salary > 0 && monthly1.type === 'number') {
             totalIncome = (monthly_salary)
         } else {
