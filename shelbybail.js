@@ -32,10 +32,10 @@ $(document).ready(function () {
         $("#totalIncome").text('0');
         $("#total_income").text('0');
 
+        // let income = $('#total_income').text()
         let benefits = $('#total_benefits').text()
         let assets = $('#total_assets').text()
         let expenses = $('#total_expenses').text()
-
 
         let newTotalDispo = (+benefits) + (+assets) - (+expenses)
         $("#total_income_and_expenses").text(addCommas(+newTotalDispo))
@@ -129,6 +129,7 @@ $(() => {
         $("#total_income").text(addCommas(totalIncome))
         // allIncomeAndExpenses.push(totalIncome)
         console.log('total income line 125', totalIncome)
+
         totalIncomeAndExpenses = totalIncome + totalBennies + totalAssets - totalExpenses
         $("#total_income_and_expenses").text(addCommas(+totalIncomeAndExpenses))
 
