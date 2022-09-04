@@ -24,28 +24,6 @@ function showSpecificFields(obj) {
     }
 }
 
-// $(document).ready(function() {
-//     $('#biweeklySalary').click(function() {
-//         // $("#biweeklyCheck").trigger("reset");
-//         // _("biweeklyCheck").reset();
-//         $(this).val('0');
-//     })
-// });
-// $(document).ready(function() {
-//     $('#monthlySalary').click(function() {
-//         $(this).val('0');
-//     })
-// });
-
-// $(document).ready(function () {
-//     $('#biweeklySalary').click(function () {
-//         $(this).val(null);
-//     });
-// });
-// $(document).ready(function () {
-// $('#monthlySalary').click(function () {
-//     $(this).val(null);
-// });
 $(document).ready(function () {
     // clear value of input when changing radio input
     $('input[type=radio][name=biweeklymonthly]').change(function () {
@@ -54,18 +32,37 @@ $(document).ready(function () {
         $("#totalIncome").text('0');
         $("#total_income").text('0');
 
-        let ben = $('#total_benefits').text()
-        let ass = $('#total_assets').text()
-        let exp = $('#total_expenses').text()
+        let benefits = $('#total_benefits').text()
+        let assets = $('#total_assets').text()
+        let expenses = $('#total_expenses').text()
 
-        let newTotalDispo = (+ben) + (+ass) - (+exp)
+
+        let newTotalDispo = (+benefits) + (+assets) - (+expenses)
         $("#total_income_and_expenses").text(addCommas(+newTotalDispo))
 
         // add new calculation for affordable bail here.
+        let newaffBailAmount;
+        
+        if ((+newTotalDispo) <= 0) {
+            newaffBailAmount = (+newTotalDispo) * 0;
+            // newaffBailAmount = 0;
+        } else if (1 <= (+newTotalDispo) && (+newTotalDispo) <= 100) {
+            newaffBailAmount = (+newTotalDispo) * 0.50;
+        } else if (101 <= (+newTotalDispo) && (+newTotalDispo) <= 200) {
+            newaffBailAmount = (+newTotalDispo) * 0.55;
+        } else if (201 <= (+newTotalDispo) && (+newTotalDispo) <= 300) {
+            newaffBailAmount = (+newTotalDispo) * 0.60;
+        } else if (301 <= (+newTotalDispo) && (+newTotalDispo) <= 400) {
+            newaffBailAmount = (+newTotalDispo) * 0.65;
+        } else if (401 <= (+newTotalDispo) && (+newTotalDispo) <= 500) {
+            newaffBailAmount = (+newTotalDispo) * 0.70;
+        } else {
+            newaffBailAmount = (+newTotalDispo) * 0.75;
+        }
+        newaffBailAmount = Math.round(parseFloat(isNaN(+newaffBailAmount) ? 0 : (+newaffBailAmount)))
+        $("#affordable_bail_amount").text(addCommas(+newaffBailAmount))
     });
 });
-
-
 
 // incomeInputNumberHidden
 let biweekly1;
@@ -142,7 +139,7 @@ $(() => {
         } else if (101 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 200) {
             affordableBailAmount = totalIncomeAndExpenses * 0.55;
         } else if (201 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 300) {
-            affordableBailAmount = totalIncomeAndExpenses * 0.60
+            affordableBailAmount = totalIncomeAndExpenses * 0.60;
         } else if (301 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 400) {
             affordableBailAmount = totalIncomeAndExpenses * 0.65;
         } else if (401 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 500) {
@@ -184,7 +181,7 @@ $(() => {
         } else if (101 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 200) {
             affordableBailAmount = totalIncomeAndExpenses * 0.55;
         } else if (201 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 300) {
-            affordableBailAmount = totalIncomeAndExpenses * 0.60
+            affordableBailAmount = totalIncomeAndExpenses * 0.60;
         } else if (301 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 400) {
             affordableBailAmount = totalIncomeAndExpenses * 0.65;
         } else if (401 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 500) {
@@ -226,7 +223,7 @@ $(() => {
         } else if (101 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 200) {
             affordableBailAmount = totalIncomeAndExpenses * 0.55;
         } else if (201 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 300) {
-            affordableBailAmount = totalIncomeAndExpenses * 0.60
+            affordableBailAmount = totalIncomeAndExpenses * 0.60;
         } else if (301 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 400) {
             affordableBailAmount = totalIncomeAndExpenses * 0.65;
         } else if (401 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 500) {
@@ -275,7 +272,7 @@ $(() => {
         } else if (101 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 200) {
             affordableBailAmount = totalIncomeAndExpenses * 0.55;
         } else if (201 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 300) {
-            affordableBailAmount = totalIncomeAndExpenses * 0.60
+            affordableBailAmount = totalIncomeAndExpenses * 0.60;
         } else if (301 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 400) {
             affordableBailAmount = totalIncomeAndExpenses * 0.65;
         } else if (401 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 500) {
