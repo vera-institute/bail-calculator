@@ -31,6 +31,17 @@ $(document).ready(function () {
         $('#biweeklySalary').val(null);
         $("#totalIncome").text('0');
         $("#total_income").text('0');
+        
+        // if(monthlySalary.value === ""){
+        //     monthlySalary.value = 0;};
+        // if(biweeklySalary.value === ""){
+        //     biweeklySalary.value = 0;};   
+        // if(totalIncome.text === ""){
+        //     totalIncome.text = 0;};   
+        // if(total_income.text === ""){
+        //     total_income.text = 0;};     
+
+        // let total_income = 0;
 
         // let income = $('#total_income').text()
         let benefits = $('#total_benefits').text()
@@ -38,6 +49,7 @@ $(document).ready(function () {
         let expenses = $('#total_expenses').text()
 
         let newTotalDispo = (+benefits) + (+assets) - (+expenses)
+        // let newTotalDispo = (+income) + (+benefits) + (+assets) - (+expenses)
         $("#total_income_and_expenses").text(addCommas(+newTotalDispo))
 
         // add new calculation for affordable bail here.
