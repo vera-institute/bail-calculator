@@ -1,8 +1,8 @@
-// incomeHourlyOrSalaryAndRadioButtonsAndInputs
+// salaryBiweeklyOrMonthlyAndRadioButtonsAndInputs
 $(document).ready(function () {
-        // resetButton
-    $("#reset").click(function(){
-            location.reload(true);
+    // resetButton
+    $("#reset").click(function () {
+        location.reload(true);
     });
     $(".radioSelect").each(function () {
         showSpecificFields(this);
@@ -24,28 +24,81 @@ function showSpecificFields(obj) {
     }
 }
 
-// incomeInputNumberHidden
-let hourly1;
-let hourly2;
-let salary1;
+$(document).ready(function () {
+    // clear value of input when changing radio input
+    $('input[type=radio][name=biweeklymonthly]').change(function () {
+        $('#monthlySalary').val(null);
+        $('#biweeklySalary').val(null);
+        $("#totalIncome").text('0');
+        $("#total_income").text('0');
+        
+        // if(monthlySalary.value === ""){
+        //     monthlySalary.value = 0;};
+        // if(biweeklySalary.value === ""){
+        //     biweeklySalary.value = 0;};   
+        // if(totalIncome.text === ""){
+        //     totalIncome.text = 0;};   
+        // if(total_income.text === ""){
+        //     total_income.text = 0;};     
 
-function hourlySalaryCheck() {
+        // let total_income = 0;
+
+        // let income = $('#total_income').text()
+        let benefits = $('#total_benefits').text()
+        let assets = $('#total_assets').text()
+        let expenses = $('#total_expenses').text()
+
+        let newTotalDispo = (+benefits) + (+assets) - (+expenses)
+        // let newTotalDispo = (+income) + (+benefits) + (+assets) - (+expenses)
+        $("#total_income_and_expenses").text(addCommas(+newTotalDispo))
+
+        // add new calculation for affordable bail here.
+        let newaffBailAmount;
+        
+        if ((+newTotalDispo) <= 0) {
+            newaffBailAmount = (+newTotalDispo) * 0;
+            // newaffBailAmount = 0;
+        } else if (1 <= (+newTotalDispo) && (+newTotalDispo) <= 100) {
+            newaffBailAmount = (+newTotalDispo) * 0.50;
+        } else if (101 <= (+newTotalDispo) && (+newTotalDispo) <= 200) {
+            newaffBailAmount = (+newTotalDispo) * 0.55;
+        } else if (201 <= (+newTotalDispo) && (+newTotalDispo) <= 300) {
+            newaffBailAmount = (+newTotalDispo) * 0.60;
+        } else if (301 <= (+newTotalDispo) && (+newTotalDispo) <= 400) {
+            newaffBailAmount = (+newTotalDispo) * 0.65;
+        } else if (401 <= (+newTotalDispo) && (+newTotalDispo) <= 500) {
+            newaffBailAmount = (+newTotalDispo) * 0.70;
+        } else {
+            newaffBailAmount = (+newTotalDispo) * 0.75;
+        }
+        newaffBailAmount = Math.round(parseFloat(isNaN(+newaffBailAmount) ? 0 : (+newaffBailAmount)))
+        $("#affordable_bail_amount").text(addCommas(+newaffBailAmount))
+    });
+});
+
+// incomeInputNumberHidden
+let biweekly1;
+// let hourly2;
+let monthly1;
+
+function biweeklyMonthlySalaryCheck() {
     // salary2 = document.getElementById('monthlySalary')
-    hourly1 = document.getElementById('hourlyWage')
-    hourly2 = document.getElementById('hoursPerWeek')
-    salary1 = document.getElementById('annualSalary')
-    if (document.getElementById('hourlyCheck').checked) {
-        hourly1.type = hourly2.type = 'number';
+    biweekly1 = document.getElementById('biweeklySalary')
+    // hourly2 = document.getElementById('hoursPerWeek')
+    monthly1 = document.getElementById('monthlySalary')
+    if (document.getElementById('biweeklyCheck').checked) {
+        biweekly1.type = 'number';
         // salary1.type = salary2.type = 'hidden';
-        salary1.type = 'hidden';
+        monthly1.type = 'hidden';
+
     } else {
         // salary1.type = salary2.type = 'number';
-        salary1.type = 'number';
-        hourly1.type = hourly2.type = 'hidden';
+        monthly1.type = 'number';
+        biweekly1.type = 'hidden';
     }
 }
 
-let total = document.getElementById('testTotal')
+// let total = document.getElementById('testTotal')
 $(() => {
     let totalIncome = 0, totalBennies = 0, totalAssets = 0, totalExpenses = 0, totalIncomeAndExpenses = 0;
     let affordableBailAmount;
@@ -53,28 +106,42 @@ $(() => {
 
     // totalIncome
     // ,#monthlySalary
-    $("#hourlyWage,#hoursPerWeek,#annualSalary").on('keyup', function () {
+    $("#biweeklySalary,#monthlySalary").on('keyup', function () {
+
         var set = $(this).closest('fieldset');
 
-        var hourly_wage = $(set).find('#hourlyWage').val() == '' ? 0 : $(set).find('#hourlyWage').val();
-        var hours_per_week = $(set).find('#hoursPerWeek').val() == '' ? 0 : $(set).find('#hoursPerWeek').val();
-        var annual_salary = $(set).find('#annualSalary').val() == '' ? 0 : $(set).find('#annualSalary').val();
+        var biweekly_salary = $(set).find('#biweeklySalary').val() == '' ? 0 : $(set).find('#biweeklySalary').val();
+        // var hours_per_week = $(set).find('#hoursPerWeek').val() == '' ? 0 : $(set).find('#hoursPerWeek').val();
+        var monthly_salary = $(set).find('#monthlySalary').val() == '' ? 0 : $(set).find('#monthlySalary').val();
         // var monthly_salary = $(set).find('#monthlySalary').val() == '' ? 0 : $(set).find('#monthlySalary').val();
 
+        // // monthlyIncomeCalculation
+        // if (monthly_salary > 0 && monthly1.type === 'number') {
+        //     totalIncome = (monthly_salary)
+        // } else if (biweekly_salary > 0 && biweekly1.type === 'number') {
+        //     totalIncome = ((biweekly_salary) * 2.165)
+        // } else {
+        //     totalIncome = "0";
+        // }
         // monthlyIncomeCalculation
-        if (annual_salary > 0 && salary1.type === 'number') {
-            totalIncome = (annual_salary / 12)
-        } else if (hourly_wage > 0 && hourly1.type === 'number') {
-            totalIncome = ((hourly_wage * hours_per_week) * 4.33)
+        if (biweekly_salary > 0 && biweekly1.type === 'number') {
+            totalIncome = ((biweekly_salary) * 2)
+        } else if (monthly_salary > 0 && monthly1.type === 'number') {
+            totalIncome = (monthly_salary)
         } else {
             totalIncome = "0";
         }
+        console.log('totalIncome line 115', totalIncome)
+
         // totalIncome = parseInt(isNaN(totalIncome) ? 0 : totalIncome)
         totalIncome = Math.round(parseFloat(isNaN(totalIncome) ? 0 : totalIncome))
+        console.log('total income line 119', totalIncome)
 
         $(set).find('#totalIncome').text(addCommas(totalIncome));
         $("#total_income").text(addCommas(totalIncome))
         // allIncomeAndExpenses.push(totalIncome)
+        console.log('total income line 125', totalIncome)
+
         totalIncomeAndExpenses = totalIncome + totalBennies + totalAssets - totalExpenses
         $("#total_income_and_expenses").text(addCommas(+totalIncomeAndExpenses))
 
@@ -85,7 +152,7 @@ $(() => {
         } else if (101 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 200) {
             affordableBailAmount = totalIncomeAndExpenses * 0.55;
         } else if (201 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 300) {
-            affordableBailAmount = totalIncomeAndExpenses * 0.60
+            affordableBailAmount = totalIncomeAndExpenses * 0.60;
         } else if (301 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 400) {
             affordableBailAmount = totalIncomeAndExpenses * 0.65;
         } else if (401 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 500) {
@@ -127,7 +194,7 @@ $(() => {
         } else if (101 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 200) {
             affordableBailAmount = totalIncomeAndExpenses * 0.55;
         } else if (201 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 300) {
-            affordableBailAmount = totalIncomeAndExpenses * 0.60
+            affordableBailAmount = totalIncomeAndExpenses * 0.60;
         } else if (301 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 400) {
             affordableBailAmount = totalIncomeAndExpenses * 0.65;
         } else if (401 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 500) {
@@ -169,7 +236,7 @@ $(() => {
         } else if (101 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 200) {
             affordableBailAmount = totalIncomeAndExpenses * 0.55;
         } else if (201 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 300) {
-            affordableBailAmount = totalIncomeAndExpenses * 0.60
+            affordableBailAmount = totalIncomeAndExpenses * 0.60;
         } else if (301 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 400) {
             affordableBailAmount = totalIncomeAndExpenses * 0.65;
         } else if (401 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 500) {
@@ -200,7 +267,7 @@ $(() => {
         var tv_internet = $(set).find('#payTvInternet').val() == '' ? 0 : $(set).find('#payTvInternet').val();
         var other = $(set).find('#payOther').val() == '' ? 0 : $(set).find('#payOther').val();
 
-        totalExpenses = Math.round(parseFloat(isNaN(housing) ? 0 : housing) + parseFloat(isNaN(electricity_gas) ? 0 : electricity_gas) + parseFloat(isNaN(food_grocery) ? 0 : food_grocery) + parseFloat(isNaN(public_transit) ? 0 : public_transit) + parseFloat(isNaN(car_payment_insurance) ? 0 : car_payment_insurance)+ parseFloat(isNaN(gas) ? 0 : gas) + parseFloat(isNaN(phone) ? 0 : phone) + parseFloat(isNaN(student_loans) ? 0 : student_loans) + parseFloat(isNaN(child_support) ? 0 : child_support) + parseFloat(isNaN(medical) ? 0 : medical) + parseFloat(isNaN(tv_internet) ? 0 : tv_internet) + parseFloat(isNaN(other) ? 0 : other))
+        totalExpenses = Math.round(parseFloat(isNaN(housing) ? 0 : housing) + parseFloat(isNaN(electricity_gas) ? 0 : electricity_gas) + parseFloat(isNaN(food_grocery) ? 0 : food_grocery) + parseFloat(isNaN(public_transit) ? 0 : public_transit) + parseFloat(isNaN(car_payment_insurance) ? 0 : car_payment_insurance) + parseFloat(isNaN(gas) ? 0 : gas) + parseFloat(isNaN(phone) ? 0 : phone) + parseFloat(isNaN(student_loans) ? 0 : student_loans) + parseFloat(isNaN(child_support) ? 0 : child_support) + parseFloat(isNaN(medical) ? 0 : medical) + parseFloat(isNaN(tv_internet) ? 0 : tv_internet) + parseFloat(isNaN(other) ? 0 : other))
         // totalExpenses = parseInt(isNaN(housing) ? 0 : housing) + parseInt(isNaN(electricity_gas) ? 0 : electricity_gas) + parseInt(isNaN(food_grocery) ? 0 : food_grocery) + parseInt(isNaN(transportation) ? 0 : transportation) + parseInt(isNaN(phone) ? 0 : phone) + parseInt(isNaN(student_loans) ? 0 : student_loans) + parseInt(isNaN(child_support) ? 0 : child_support) + parseInt(isNaN(medical) ? 0 : medical) + parseInt(isNaN(tv_internet) ? 0 : tv_internet) + parseInt(isNaN(other) ? 0 : other)
 
         $(set).find('#totalExpenses').text(addCommas(totalExpenses));
@@ -218,7 +285,7 @@ $(() => {
         } else if (101 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 200) {
             affordableBailAmount = totalIncomeAndExpenses * 0.55;
         } else if (201 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 300) {
-            affordableBailAmount = totalIncomeAndExpenses * 0.60
+            affordableBailAmount = totalIncomeAndExpenses * 0.60;
         } else if (301 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 400) {
             affordableBailAmount = totalIncomeAndExpenses * 0.65;
         } else if (401 <= totalIncomeAndExpenses && totalIncomeAndExpenses <= 500) {
@@ -236,4 +303,4 @@ function addCommas(x) {
     var parts = x.toString().split('.')
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',')
     return parts.join('.')
-  };
+};

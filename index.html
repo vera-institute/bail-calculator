@@ -70,16 +70,16 @@
                 <input class="input-text" type="number" id="months" placeholder="Months">
                 <label for="months">Months</label>
             </div> -->
-            <label for="payType">Are you paid hourly or by salary?</label>
+            <label for="payType">What is your average bi-weekly or monthly take home pay (after taxes)? <br> <small><em>*Please enter 0 for either bi-weekly or monthly pay if take home pay is $0</small></em></label>
             <br>
-            <input type="radio" onclick="hourlySalaryCheck();" name="hourlysalary" id="hourlyCheck" /> Hourly
+            <input type="radio" onclick="biweeklyMonthlySalaryCheck();" name="biweeklymonthly" id="biweeklyCheck" /> Bi-weekly
 
-            <input type="radio" onclick="hourlySalaryCheck();" name="hourlysalary" id="salaryCheck" /> Salary
+            <input type="radio" onclick="biweeklyMonthlySalaryCheck();" name="biweeklymonthly" id="monthlyCheck" /> Monthly
             <br>
-            <input type="hidden" id="hourlyWage" name="hourlyWage" placeholder="Hourly Wage ($)" />
-            <input type="hidden" id="hoursPerWeek" name="hoursPerWeek" placeholder="Hours Per Week" />
+            <input type="hidden" id="biweeklySalary" name="biweeklySalary" placeholder="Bi-weekly Pay ($)" />
+            <!-- <input type="hidden" id="hoursPerWeek" name="hoursPerWeek" placeholder="Hours Per Week" /> -->
 
-            <input type="hidden" id="annualSalary" name="annualSalary" placeholder="Annual Salary ($)">
+            <input type="hidden" id="monthlySalary" name="monthlySalary" placeholder="Monthly Pay ($)" />
             <!-- <input type="hidden" id="monthlySalary" name="monthlySalary" placeholder="Monthly Salary ($)"> -->
             </div>
             <!-- <div class="button-group">
@@ -334,8 +334,12 @@
         <p></p>
         <!-- clearForm -->
         <button id="reset">Clear Form</button>
+
+        <!-- logo -->
+        <div id="outerimg">
+            <a href="https://www.vera.org"><img id="logo" src="img/Vera_Hor_Red.png"></a>
+        </div>
     </form>
-
+    
 </body>
-
 </html>
