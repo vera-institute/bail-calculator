@@ -105,6 +105,7 @@ $(() => {
     // let allIncomeAndExpenses = [];
 
     // totalIncome
+    // monthlyTakeHomePay
     // ,#monthlySalary, "#biweeklySalary,#monthlySalary"
     $("#monthlyTakeHomePay").on('keyup', function () {
 
