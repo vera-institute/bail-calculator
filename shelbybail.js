@@ -4,33 +4,33 @@ $(document).ready(function () {
     $("#reset").click(function () {
         location.reload(true);
     });
-    $(".radioSelect").each(function () {
-        showSpecificFields(this);
-    });
-    $(".radioSelect").click(function () {
-        showSpecificFields(this);
-    });
+    // $(".radioSelect").each(function () {
+    //     showSpecificFields(this);
+    // });
+    // $(".radioSelect").click(function () {
+    //     showSpecificFields(this);
+    // });
 });
-function showSpecificFields(obj) {
-    if ($(obj).is(":checked")) {
-        var radioVal = $(obj).val();
-        $(".fieldsSpecific").each(function () {
-            if ($(this).attr('id') == radioVal) {
-                $(this).show();
-            } else {
-                $(this).hide();
-            }
-        });
-    }
-}
+// function showSpecificFields(obj) {
+//     if ($(obj).is(":checked")) {
+//         var radioVal = $(obj).val();
+//         $(".fieldsSpecific").each(function () {
+//             if ($(this).attr('id') == radioVal) {
+//                 $(this).show();
+//             } else {
+//                 $(this).hide();
+//             }
+//         });
+//     }
+// }
 
-$(document).ready(function () {
+// $(document).ready(function () {
     // clear value of input when changing radio input
-    $('input[type=radio][name=biweeklymonthly]').change(function () {
-        $('#monthlySalary').val(null);
-        $('#biweeklySalary').val(null);
-        $("#totalIncome").text('0');
-        $("#total_income").text('0');
+    // $('input[type=radio][name=biweeklymonthly]').change(function () {
+    //     $('#monthlySalary').val(null);
+    //     $('#biweeklySalary').val(null);
+        // $("#totalIncome").text('0');
+        // $("#total_income").text('0');
         
         // if(monthlySalary.value === ""){
         //     monthlySalary.value = 0;};
@@ -44,59 +44,59 @@ $(document).ready(function () {
         // let total_income = 0;
 
         // let income = $('#total_income').text()
-        let benefits = $('#total_benefits').text()
-        let assets = $('#total_assets').text()
-        let expenses = $('#total_expenses').text()
+        // let benefits = $('#total_benefits').text()
+        // let assets = $('#total_assets').text()
+        // let expenses = $('#total_expenses').text()
 
-        let newTotalDispo = (+benefits) + (+assets) - (+expenses)
-        // let newTotalDispo = (+income) + (+benefits) + (+assets) - (+expenses)
-        $("#total_income_and_expenses").text(addCommas(+newTotalDispo))
+        // let newTotalDispo = (+benefits) + (+assets) - (+expenses)
+        // // let newTotalDispo = (+income) + (+benefits) + (+assets) - (+expenses)
+        // $("#total_income_and_expenses").text(addCommas(+newTotalDispo))
 
-        // add new calculation for affordable bail here.
-        let newaffBailAmount;
+        // // add new calculation for affordable bail here.
+        // let newaffBailAmount;
         
-        if ((+newTotalDispo) <= 0) {
-            newaffBailAmount = (+newTotalDispo) * 0;
-            // newaffBailAmount = 0;
-        } else if (1 <= (+newTotalDispo) && (+newTotalDispo) <= 100) {
-            newaffBailAmount = (+newTotalDispo) * 0.50;
-        } else if (101 <= (+newTotalDispo) && (+newTotalDispo) <= 200) {
-            newaffBailAmount = (+newTotalDispo) * 0.55;
-        } else if (201 <= (+newTotalDispo) && (+newTotalDispo) <= 300) {
-            newaffBailAmount = (+newTotalDispo) * 0.60;
-        } else if (301 <= (+newTotalDispo) && (+newTotalDispo) <= 400) {
-            newaffBailAmount = (+newTotalDispo) * 0.65;
-        } else if (401 <= (+newTotalDispo) && (+newTotalDispo) <= 500) {
-            newaffBailAmount = (+newTotalDispo) * 0.70;
-        } else {
-            newaffBailAmount = (+newTotalDispo) * 0.75;
-        }
-        newaffBailAmount = Math.round(parseFloat(isNaN(+newaffBailAmount) ? 0 : (+newaffBailAmount)))
-        $("#affordable_bail_amount").text(addCommas(+newaffBailAmount))
-    });
-});
+        // if ((+newTotalDispo) <= 0) {
+        //     newaffBailAmount = (+newTotalDispo) * 0;
+        //     // newaffBailAmount = 0;
+        // } else if (1 <= (+newTotalDispo) && (+newTotalDispo) <= 100) {
+        //     newaffBailAmount = (+newTotalDispo) * 0.50;
+        // } else if (101 <= (+newTotalDispo) && (+newTotalDispo) <= 200) {
+        //     newaffBailAmount = (+newTotalDispo) * 0.55;
+        // } else if (201 <= (+newTotalDispo) && (+newTotalDispo) <= 300) {
+        //     newaffBailAmount = (+newTotalDispo) * 0.60;
+        // } else if (301 <= (+newTotalDispo) && (+newTotalDispo) <= 400) {
+        //     newaffBailAmount = (+newTotalDispo) * 0.65;
+        // } else if (401 <= (+newTotalDispo) && (+newTotalDispo) <= 500) {
+        //     newaffBailAmount = (+newTotalDispo) * 0.70;
+        // } else {
+        //     newaffBailAmount = (+newTotalDispo) * 0.75;
+        // }
+        // newaffBailAmount = Math.round(parseFloat(isNaN(+newaffBailAmount) ? 0 : (+newaffBailAmount)))
+        // $("#affordable_bail_amount").text(addCommas(+newaffBailAmount))
+    // });
+// });
 
 // incomeInputNumberHidden
-let biweekly1;
-// let hourly2;
-let monthly1;
+// let biweekly1;
+// // let hourly2;
+// let monthly1;
 
-function biweeklyMonthlySalaryCheck() {
-    // salary2 = document.getElementById('monthlySalary')
-    biweekly1 = document.getElementById('biweeklySalary')
-    // hourly2 = document.getElementById('hoursPerWeek')
-    monthly1 = document.getElementById('monthlySalary')
-    if (document.getElementById('biweeklyCheck').checked) {
-        biweekly1.type = 'number';
-        // salary1.type = salary2.type = 'hidden';
-        monthly1.type = 'hidden';
+// function biweeklyMonthlySalaryCheck() {
+//     // salary2 = document.getElementById('monthlySalary')
+//     biweekly1 = document.getElementById('biweeklySalary')
+//     // hourly2 = document.getElementById('hoursPerWeek')
+//     monthly1 = document.getElementById('monthlySalary')
+//     if (document.getElementById('biweeklyCheck').checked) {
+//         biweekly1.type = 'number';
+//         // salary1.type = salary2.type = 'hidden';
+//         monthly1.type = 'hidden';
 
-    } else {
-        // salary1.type = salary2.type = 'number';
-        monthly1.type = 'number';
-        biweekly1.type = 'hidden';
-    }
-}
+//     } else {
+//         // salary1.type = salary2.type = 'number';
+//         monthly1.type = 'number';
+//         biweekly1.type = 'hidden';
+//     }
+// }
 
 // let total = document.getElementById('testTotal')
 $(() => {
@@ -105,14 +105,18 @@ $(() => {
     // let allIncomeAndExpenses = [];
 
     // totalIncome
-    // ,#monthlySalary
-    $("#biweeklySalary,#monthlySalary").on('keyup', function () {
+    // ,#monthlySalary, "#biweeklySalary,#monthlySalary"
+    $("#monthlyTakeHomePay").on('keyup', function () {
 
         var set = $(this).closest('fieldset');
 
-        var biweekly_salary = $(set).find('#biweeklySalary').val() == '' ? 0 : $(set).find('#biweeklySalary').val();
+        var monthly_take_home_pay = $(set).find('#monthlyTakeHomePay').val() == '' ? 0 : $(set).find('#monthlyTakeHomePay').val();
+    
+        totalIncome = monthly_take_home_pay;
+
+        // var biweekly_salary = $(set).find('#biweeklySalary').val() == '' ? 0 : $(set).find('#biweeklySalary').val();
         // var hours_per_week = $(set).find('#hoursPerWeek').val() == '' ? 0 : $(set).find('#hoursPerWeek').val();
-        var monthly_salary = $(set).find('#monthlySalary').val() == '' ? 0 : $(set).find('#monthlySalary').val();
+        // var monthly_salary = $(set).find('#monthlySalary').val() == '' ? 0 : $(set).find('#monthlySalary').val();
         // var monthly_salary = $(set).find('#monthlySalary').val() == '' ? 0 : $(set).find('#monthlySalary').val();
 
         // // monthlyIncomeCalculation
@@ -124,13 +128,13 @@ $(() => {
         //     totalIncome = "0";
         // }
         // monthlyIncomeCalculation
-        if (biweekly_salary > 0 && biweekly1.type === 'number') {
-            totalIncome = ((biweekly_salary) * 2)
-        } else if (monthly_salary > 0 && monthly1.type === 'number') {
-            totalIncome = (monthly_salary)
-        } else {
-            totalIncome = "0";
-        }
+        // if (biweekly_salary > 0 && biweekly1.type === 'number') {
+        //     totalIncome = ((biweekly_salary) * 2)
+        // } else if (monthly_salary > 0 && monthly1.type === 'number') {
+        //     totalIncome = (monthly_salary)
+        // } else {
+        //     totalIncome = "0";
+        // }
         console.log('totalIncome line 115', totalIncome)
 
         // totalIncome = parseInt(isNaN(totalIncome) ? 0 : totalIncome)
@@ -251,11 +255,11 @@ $(() => {
     });
 
     // totalExpenses
-    $("#payHousing,#payElectricityGas,#payFoodGrocery,#payPublicTransit, #paycarPaymentInsurance, #payGas, #payPhone,#payStudentLoans,#payChildSupport,#payMedical,#payTvInternet,#payOther").on('keyup', function () {
+    $("#payHousing,#payUtilities,#payFoodGrocery,#payPublicTransit, #paycarPaymentInsurance, #payGas, #payPhone,#payStudentLoans,#payChildSupport,#payMedical,#payTvInternet,#payOther").on('keyup', function () {
         var set = $(this).closest('fieldset');
 
         var housing = $(set).find('#payHousing').val() == '' ? 0 : $(set).find('#payHousing').val();
-        var electricity_gas = $(set).find('#payElectricityGas').val() == '' ? 0 : $(set).find('#payElectricityGas').val();
+        var utilities = $(set).find('#payUtilities').val() == '' ? 0 : $(set).find('#payUtilities').val();
         var food_grocery = $(set).find('#payFoodGrocery').val() == '' ? 0 : $(set).find('#payFoodGrocery').val();
         var public_transit = $(set).find('#payPublicTransit').val() == '' ? 0 : $(set).find('#payPublicTransit').val();
         var car_payment_insurance = $(set).find('#paycarPaymentInsurance').val() == '' ? 0 : $(set).find('#paycarPaymentInsurance').val();
@@ -267,7 +271,7 @@ $(() => {
         var tv_internet = $(set).find('#payTvInternet').val() == '' ? 0 : $(set).find('#payTvInternet').val();
         var other = $(set).find('#payOther').val() == '' ? 0 : $(set).find('#payOther').val();
 
-        totalExpenses = Math.round(parseFloat(isNaN(housing) ? 0 : housing) + parseFloat(isNaN(electricity_gas) ? 0 : electricity_gas) + parseFloat(isNaN(food_grocery) ? 0 : food_grocery) + parseFloat(isNaN(public_transit) ? 0 : public_transit) + parseFloat(isNaN(car_payment_insurance) ? 0 : car_payment_insurance) + parseFloat(isNaN(gas) ? 0 : gas) + parseFloat(isNaN(phone) ? 0 : phone) + parseFloat(isNaN(student_loans) ? 0 : student_loans) + parseFloat(isNaN(child_support) ? 0 : child_support) + parseFloat(isNaN(medical) ? 0 : medical) + parseFloat(isNaN(tv_internet) ? 0 : tv_internet) + parseFloat(isNaN(other) ? 0 : other))
+        totalExpenses = Math.round(parseFloat(isNaN(housing) ? 0 : housing) + parseFloat(isNaN(utilities) ? 0 : utilities) + parseFloat(isNaN(food_grocery) ? 0 : food_grocery) + parseFloat(isNaN(public_transit) ? 0 : public_transit) + parseFloat(isNaN(car_payment_insurance) ? 0 : car_payment_insurance) + parseFloat(isNaN(gas) ? 0 : gas) + parseFloat(isNaN(phone) ? 0 : phone) + parseFloat(isNaN(student_loans) ? 0 : student_loans) + parseFloat(isNaN(child_support) ? 0 : child_support) + parseFloat(isNaN(medical) ? 0 : medical) + parseFloat(isNaN(tv_internet) ? 0 : tv_internet) + parseFloat(isNaN(other) ? 0 : other))
         // totalExpenses = parseInt(isNaN(housing) ? 0 : housing) + parseInt(isNaN(electricity_gas) ? 0 : electricity_gas) + parseInt(isNaN(food_grocery) ? 0 : food_grocery) + parseInt(isNaN(transportation) ? 0 : transportation) + parseInt(isNaN(phone) ? 0 : phone) + parseInt(isNaN(student_loans) ? 0 : student_loans) + parseInt(isNaN(child_support) ? 0 : child_support) + parseInt(isNaN(medical) ? 0 : medical) + parseInt(isNaN(tv_internet) ? 0 : tv_internet) + parseInt(isNaN(other) ? 0 : other)
 
         $(set).find('#totalExpenses').text(addCommas(totalExpenses));
