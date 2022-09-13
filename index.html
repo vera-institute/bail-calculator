@@ -40,7 +40,8 @@
     <form>
         <fieldset class="groupset">
             <legend>Earnings</legend>
-            <h1 class="head-title"></h1>
+            <p>What is your average monthly take home pay (after taxes)?</p>
+            <!-- <h1 class="head-title"></h1> -->
             <!-- <div class="input-group">
             <label for="studentStatus">Are You a Student?</label>
             <form>
@@ -70,16 +71,22 @@
                 <input class="input-text" type="number" id="months" placeholder="Months">
                 <label for="months">Months</label>
             </div> -->
-            <label for="payType">What is your average bi-weekly or monthly take home pay (after taxes)? <br> <small><em>*Please enter 0 for either bi-weekly or monthly pay if take home pay is $0</small></em></label>
-            <br>
-            <input type="radio" onclick="biweeklyMonthlySalaryCheck();" name="biweeklymonthly" id="biweeklyCheck" /> Bi-weekly
+            <!-- <label for="payType">What is your average monthly take home pay (after taxes)? </label> -->
+            <!-- What is your average bi-weekly or monthly take home pay (after taxes)?  -->
+            <h1 class="head-title"></h1>
+            <div class="input-group">
+                <label for="monthlyTakeHomePay">Monthly Take Home Pay: $</label>
+                <input onClick="this.select();" class="input-text" type="number" id="monthlyTakeHomePay" value="0">
+            </div>
+            
+            <!-- <input type="radio" onclick="biweeklyMonthlySalaryCheck();" name="biweeklymonthly" id="biweeklyCheck" /> Bi-weekly Pay ($) 
 
-            <input type="radio" onclick="biweeklyMonthlySalaryCheck();" name="biweeklymonthly" id="monthlyCheck" /> Monthly
+            <input type="radio" onclick="biweeklyMonthlySalaryCheck();" name="biweeklymonthly" id="monthlyCheck" /> Monthly Pay ($) 
             <br>
-            <input type="hidden" id="biweeklySalary" name="biweeklySalary" placeholder="Bi-weekly Pay ($)" />
+            <input type="hidden" id="biweeklySalary" name="biweeklySalary" placeholder="Bi-weekly Pay ($)" /> -->
             <!-- <input type="hidden" id="hoursPerWeek" name="hoursPerWeek" placeholder="Hours Per Week" /> -->
 
-            <input type="hidden" id="monthlySalary" name="monthlySalary" placeholder="Monthly Pay ($)" />
+            <!-- <input type="hidden" id="monthlySalary" name="monthlySalary" placeholder="Monthly Pay ($)" /> -->
             <!-- <input type="hidden" id="monthlySalary" name="monthlySalary" placeholder="Monthly Salary ($)"> -->
             </div>
             <!-- <div class="button-group">
@@ -245,8 +252,8 @@
                 <input onClick="this.select();" class="input-text" type="number" id="payHousing" value="0">
             </div>
             <div class="input-group">
-                <label for="payElectricityGas">Electricity & Gas: $</label>
-                <input onClick="this.select();" class="input-text" type="number" id="payElectricityGas" value="0">
+                <label for="payUtilities">Utilities: $</label>
+                <input onClick="this.select();" class="input-text" type="number" id="payUtilities" value="0">
             </div>
             <div class="input-group">
                 <label for="payFoodGrocery">Food & Grocery: $</label>
@@ -261,7 +268,7 @@
                 <input onClick="this.select();" class="input-text" type="number" id="paycarPaymentInsurance" value="0">
             </div>
             <div class="input-group">
-                <label for="payGas">Gas: $</label>
+                <label for="payGas">Gasoline: $</label>
                 <input onClick="this.select();" class="input-text" type="number" id="payGas" value="0">
             </div>
             <div class="input-group">
