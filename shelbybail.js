@@ -4,6 +4,15 @@ $(document).ready(function () {
     $("#reset").click(function () {
         location.reload(true);
     });
+// returnEnterKeyFunctionLikeTab
+    $('input').keydown( function(e) {
+        var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
+        if(key == 13) {
+            e.preventDefault();
+            var inputs = $(this).closest('form').find(':input:visible');
+            inputs.eq( inputs.index(this)+ 1 ).focus();
+        }
+    });
     // $(".radioSelect").each(function () {
     //     showSpecificFields(this);
     // });
@@ -11,6 +20,7 @@ $(document).ready(function () {
     //     showSpecificFields(this);
     // });
 });
+
 // function showSpecificFields(obj) {
 //     if ($(obj).is(":checked")) {
 //         var radioVal = $(obj).val();
